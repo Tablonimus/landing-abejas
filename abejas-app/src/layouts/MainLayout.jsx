@@ -28,9 +28,10 @@ export default function MainLayout({ children }) {
           <a href="/" className="navbar-brand group flex items-center gap-3">
             <div className="w-9 h-9 rounded-full overflow-hidden border border-white/10 flex-shrink-0">
               <img 
-                src="/src/assets/logos/logo_insitucional.jpg" 
+                src="/logo_insitucional.jpg" 
                 alt="Abejas FC" 
                 className="w-full h-full object-cover" 
+                loading="lazy"
               />
             </div>
             <span className="navbar-title group-hover:text-honey-300">
@@ -113,11 +114,12 @@ export default function MainLayout({ children }) {
             {/* Brand */}
             <div className="flex items-center gap-4">
               <div className="w-10 h-10 rounded-full overflow-hidden border border-white/10 flex-shrink-0">
-                <img 
-                  src="/src/assets/logos/logo_insitucional.jpg" 
-                  alt="Abejas FC" 
-                  className="w-full h-full object-cover" 
-                />
+              <img 
+                src="/logo_insitucional.jpg" 
+                alt="Abejas FC" 
+                className="w-full h-full object-cover" 
+                loading="lazy"
+              />
               </div>
               <div>
                 <p className="footer-brand-name">ABEJAS FC</p>

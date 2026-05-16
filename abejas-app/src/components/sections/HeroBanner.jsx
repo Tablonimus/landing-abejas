@@ -3,16 +3,16 @@ import { ROUTES } from '../../constants'
 import './HeroBanner.css'
 
 const backgroundImages = [
-  '/src/assets/images/ultimacena.jpg',
-  '/src/assets/images/Abeja viendo Abejas.jpg',
-  '/src/assets/images/Yaelo y Davo revolución.jpg',
-  '/src/assets/images/cumplenacho.jpg',
+  '/images/ultimacena.jpg',
+  '/images/Abeja viendo Abejas.jpg',
+  '/images/Yaelo y Davo revolución.jpg',
+  '/images/cumplenacho.jpg',
 ]
 
 const floatingMemories = [
-  { src: '/src/assets/images/cumplenacho.jpg', x: '5%', y: '14%', rotate: -5, delay: 0.5, size: 'w-[200px] md:w-[260px]' },
-  { src: '/src/assets/images/ultimacena.jpg', x: '84%', y: '10%', rotate: 4, delay: 1.8, size: 'w-[180px] md:w-[240px]' },
-  { src: '/src/assets/images/Abeja viendo Abejas.jpg', x: '80%', y: '56%', rotate: -3, delay: 2.6, size: 'w-[220px] md:w-[290px]' },
+  { src: '/images/cumplenacho.jpg', x: '5%', y: '14%', rotate: -5, delay: 0.5, size: 'w-[200px] md:w-[260px]' },
+  { src: '/images/ultimacena.jpg', x: '84%', y: '10%', rotate: 4, delay: 1.8, size: 'w-[180px] md:w-[240px]' },
+  { src: '/images/Abeja viendo Abejas.jpg', x: '80%', y: '56%', rotate: -3, delay: 2.6, size: 'w-[220px] md:w-[290px]' },
 ]
 
 export default function HeroBanner() {
