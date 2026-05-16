@@ -40,22 +40,23 @@ export default function Museum() {
 <section className="relative py-16 md:py-24 lg:py-36 overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_-20%,rgba(250,204,21,0.12),transparent)]" />
 
-          <div className="relative z-10 max-w-[900px] mx-auto px-4 sm:px-6 text-center">
-           <motion.div
-             initial={{ opacity: 0, y: 40 }}
-             animate={{ opacity: 1, y: 0 }}
-             transition={{ duration: 0.8 }}
-           >
-             <SectionLabel>MUSEO ABEJAS FC</SectionLabel>
-             <h1 className="font-[Bebas_Neue] text-6xl md:text-8xl lg:text-9xl tracking-tight text-pitch-100 mt-4 mb-6">
-               ARCHIVO &
-               <br />
-               <span className="text-transparent bg-clip-text bg-gradient-to-r from-honey-200 to-honey-400">TESOROS</span>
-             </h1>
-             <p className="font-editorial text-xl text-pitch-300 italic">
-               El archivo oficial del grupo. Cada objeto cuenta una historia.
-             </p>
-           </motion.div>
+           <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="max-w-3xl"
+            >
+              <SectionLabel>MUSEO ABEJAS FC</SectionLabel>
+              <h1 className="font-display text-[clamp(2.8rem,7vw,6.5rem)] leading-[0.92] tracking-tight text-pitch-100 mt-4 mb-6">
+                ARCHIVO &
+                <br />
+                <span className="heading-accent">TESOROS</span>
+              </h1>
+              <p className="font-editorial text-lg md:text-xl text-pitch-300 italic mt-4 leading-relaxed max-w-xl">
+                El archivo oficial del grupo. Cada objeto cuenta una historia.
+              </p>
+            </motion.div>
          </div>
        </section>
 

@@ -1,27 +1,48 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, ChevronLeft, ChevronRight } from 'lucide-react'
+import { SectionLabel } from '../components/ui/Reveal'
+
+// Importar imágenes de la galería
+import img1 from '../assets/tercer_tiempo/facebook/Asado 1.jpg'
+import img2 from '../assets/tercer_tiempo/facebook/After 1.jpg'
+import img3 from '../assets/tercer_tiempo/facebook/Abrazo equipo.jfif'
+import img4 from '../assets/tercer_tiempo/facebook/Nacho Asado.jpg'
+import img5 from '../assets/tercer_tiempo/facebook/Cumple Nacho.jpg'
+import img6 from '../assets/tercer_tiempo/facebook/última cena abeja.jpg'
+import img7 from '../assets/tercer_tiempo/facebook/Valhalla barril.jpg'
+import img8 from '../assets/tercer_tiempo/facebook/Davo chori After.jpg'
+import img9 from '../assets/tercer_tiempo/facebook/Festejo Abejas TDM.jpg'
+import img10 from '../assets/tercer_tiempo/facebook/Guille botella tupper.jpg'
+import img11 from '../assets/tercer_tiempo/facebook/Asado casa Tonga.jpg'
+import img12 from '../assets/tercer_tiempo/facebook/Migue cerveza.jfif'
+import img13 from '../assets/tercer_tiempo/facebook/Equipo.jfif'
+import img14 from '../assets/tercer_tiempo/facebook/Camiseta negra Tonga Ardujpg.jpg'
+import img15 from '../assets/tercer_tiempo/facebook/Pali After.jpg'
+import img16 from '../assets/tercer_tiempo/facebook/Fernet y Abeja.jpg'
+import img17 from '../assets/tercer_tiempo/facebook/Disco Vlado 1.jpg'
+import img18 from '../assets/tercer_tiempo/facebook/Nacho Momo Gamba.jfif'
 
 // Curated epic photos from tercer_tiempo
 const gallery = [
-  { id: 1, src: '/tercer_tiempo/facebook/Asado 1.jpg', caption: 'Asado post-derrota', date: '2018', tag: 'Fuego' },
-  { id: 2, src: '/tercer_tiempo/facebook/After 1.jpg', caption: 'El after que duró hasta el amanecer', date: '2019', tag: 'Caos' },
-  { id: 3, src: '/tercer_tiempo/facebook/Abrazo equipo.jfif', caption: 'Abrazo después del gol', date: '2021', tag: 'Hermandad' },
-  { id: 4, src: '/tercer_tiempo/facebook/Nacho Asado.jpg', caption: 'Nacho controlando el fuego', date: '2017', tag: 'Leyenda' },
-  { id: 5, src: '/tercer_tiempo/facebook/Cumple Nacho.jpg', caption: 'Cumple de Nacho con el equipo', date: '2022', tag: 'Fiesta' },
-  { id: 6, src: '/tercer_tiempo/facebook/última cena abeja.jpg', caption: 'La última cena abeja', date: '2023', tag: 'Mística' },
-  { id: 7, src: '/tercer_tiempo/facebook/Valhalla barril.jpg', caption: 'Barril en Valhalla', date: '2019', tag: 'Cerveza' },
-  { id: 8, src: '/tercer_tiempo/facebook/Davo chori After.jpg', caption: 'Davo con el chori sagrado', date: '2016', tag: 'Memoria' },
-  { id: 9, src: '/tercer_tiempo/facebook/Festejo Abejas TDM.jpg', caption: 'Festejo TDM', date: '2022', tag: 'Gloria' },
-  { id: 10, src: '/tercer_tiempo/facebook/Guille botella tupper.jpg', caption: 'Guille y la botella legendaria', date: '2018', tag: 'Caos' },
-  { id: 11, src: '/tercer_tiempo/facebook/Asado casa Tonga.jpg', caption: 'Asado en casa de Tonga', date: '2020', tag: 'Hogar' },
-  { id: 12, src: '/tercer_tiempo/facebook/Migue cerveza.jfif', caption: 'Migue con la pinta perfecta', date: '2017', tag: 'Birra' },
-  { id: 13, src: '/tercer_tiempo/facebook/Equipo.jfif', caption: 'El equipo completo', date: '2015', tag: 'Historia' },
-  { id: 14, src: '/tercer_tiempo/facebook/Camiseta negra Tonga Ardujpg.jpg', caption: 'Camiseta negra histórica', date: '2016', tag: 'Identidad' },
-  { id: 15, src: '/tercer_tiempo/facebook/Pali After.jpg', caption: 'Pali en modo after', date: '2021', tag: 'Energía' },
-  { id: 16, src: '/tercer_tiempo/facebook/Fernando y Abeja.jpg', caption: 'Fernet y Abeja', date: '2019', tag: 'Ritual' },
-  { id: 17, src: '/tercer_tiempo/facebook/Disco Vlado 1.jpg', caption: 'DJ Kuden en acción', date: '2018', tag: 'Música' },
-  { id: 18, src: '/tercer_tiempo/facebook/Nacho Momo Gamba.jfif', caption: 'Nacho y Momo', date: '2022', tag: 'Dúo' },
+  { id: 1, src: img1, caption: 'Asado post-derrota', date: '2018', tag: 'Fuego' },
+  { id: 2, src: img2, caption: 'El after que duró hasta el amanecer', date: '2019', tag: 'Caos' },
+  { id: 3, src: img3, caption: 'Abrazo después del gol', date: '2021', tag: 'Hermandad' },
+  { id: 4, src: img4, caption: 'Nacho controlando el fuego', date: '2017', tag: 'Leyenda' },
+  { id: 5, src: img5, caption: 'Cumple de Nacho con el equipo', date: '2022', tag: 'Fiesta' },
+  { id: 6, src: img6, caption: 'La última cena abeja', date: '2023', tag: 'Mística' },
+  { id: 7, src: img7, caption: 'Barril en Valhalla', date: '2019', tag: 'Cerveza' },
+  { id: 8, src: img8, caption: 'Davo con el chori sagrado', date: '2016', tag: 'Memoria' },
+  { id: 9, src: img9, caption: 'Festejo TDM', date: '2022', tag: 'Gloria' },
+  { id: 10, src: img10, caption: 'Guille y la botella legendaria', date: '2018', tag: 'Caos' },
+  { id: 11, src: img11, caption: 'Asado en casa de Tonga', date: '2020', tag: 'Hogar' },
+  { id: 12, src: img12, caption: 'Migue con la pinta perfecta', date: '2017', tag: 'Birra' },
+  { id: 13, src: img13, caption: 'El equipo completo', date: '2015', tag: 'Historia' },
+  { id: 14, src: img14, caption: 'Camiseta negra histórica', date: '2016', tag: 'Identidad' },
+  { id: 15, src: img15, caption: 'Pali en modo after', date: '2021', tag: 'Energía' },
+  { id: 16, src: img16, caption: 'Fernet y Abeja', date: '2019', tag: 'Ritual' },
+  { id: 17, src: img17, caption: 'DJ Kuden en acción', date: '2018', tag: 'Música' },
+  { id: 18, src: img18, caption: 'Nacho y Momo', date: '2022', tag: 'Dúo' },
 ]
 
 const floatingPhrases = [
@@ -45,20 +66,32 @@ export default function AfterMatch() {
 
   return (
     <div className="bg-black min-h-screen text-white overflow-hidden">
-      {/* HEADER - Documentary style */}
-      <div className="relative pt-20 pb-16 px-6 text-center border-b border-white/10">
-        <div className="max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full border border-honey-300/30 text-xs tracking-[3px] text-honey-300 mb-6">
-            ARCHIVO 2013 — PRESENTE
-          </div>
-          <h1 className="font-editorial text-[92px] md:text-[120px] leading-none tracking-[-6px] mb-4">
-            TERCER<br />TIEMPO
-          </h1>
-          <p className="text-2xl text-white/70 max-w-md mx-auto">
-            El mural de las noches que no terminan.
-          </p>
+      {/* HEADER */}
+ <section className="relative pt-20 pb-16 md:pt-28 md:pb-24 lg:pt-32 lg:pb-28 overflow-hidden">
+         <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_0%,rgba(250,204,21,0.09),transparent)]" />
+
+          <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
+           <motion.div
+             initial={{ opacity: 0, y: 40 }}
+             animate={{ opacity: 1, y: 0 }}
+             transition={{ duration: 0.8 }}
+             className="max-w-3xl"
+           >
+             <SectionLabel>Archivo 2013 - Presente</SectionLabel>
+ 
+             <h1 className="mt-5 font-display text-[clamp(2.8rem,7vw,6.5rem)] leading-[0.92] tracking-tight text-pitch-100">
+               TERCER TIEMPO
+               <br />
+               <span className="heading-accent">ABEJA</span>
+             </h1>
+ 
+             <p className="font-editorial text-pitch-300 italic text-base md:text-lg mt-6 max-w-xl leading-relaxed">
+            El mural dedicado a aquellos partidos que nunca terminan.
+             </p>
+           </motion.div>
         </div>
-      </div>
+      </section>
+
 
       {/* MASONRY GALLERY */}
       <div className="container pt-12 pb-24 relative">

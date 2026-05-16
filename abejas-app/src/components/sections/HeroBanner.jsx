@@ -2,17 +2,19 @@ import { motion } from 'framer-motion'
 import { ROUTES } from '../../constants'
 import './HeroBanner.css'
 
-const backgroundImages = [
-  '/images/ultimacena.jpg',
-  '/images/Abeja viendo Abejas.jpg',
-  '/images/Yaelo y Davo revolución.jpg',
-  '/images/cumplenacho.jpg',
-]
+// Importar imágenes correctamente con Vite
+import hero1 from '../../assets/images/ultimacena.jpg'
+import hero2 from '../../assets/images/Abeja viendo Abejas.jpg'
+import hero3 from '../../assets/images/Yaelo y Davo revolución.jpg'
+import hero4 from '../../assets/images/cumplenacho.jpg'
+
+const backgroundImages = [hero1, hero2, hero3, hero4]
 
 const floatingMemories = [
-  { src: '/images/cumplenacho.jpg', x: '5%', y: '14%', rotate: -5, delay: 0.5, size: 'w-[200px] md:w-[260px]' },
-  { src: '/images/ultimacena.jpg', x: '84%', y: '10%', rotate: 4, delay: 1.8, size: 'w-[180px] md:w-[240px]' },
-  { src: '/images/Abeja viendo Abejas.jpg', x: '80%', y: '56%', rotate: -3, delay: 2.6, size: 'w-[220px] md:w-[290px]' },
+  { src: hero4, x: '5%', y: '14%', rotate: -5, delay: 0.5, size: 'w-[200px] md:w-[260px]' },
+  { src: hero1, x: '84%', y: '10%', rotate: 4, delay: 1.8, size: 'w-[180px] md:w-[240px]' },
+  { src: hero2, x: '80%', y: '56%', rotate: -3, delay: 2.6, size: 'w-[220px] md:w-[290px]' },
+  { src: hero3, x: '8%', y: '68%', rotate: 6, delay: 3.4, size: 'w-[190px] md:w-[250px]' },
 ]
 
 export default function HeroBanner() {
@@ -31,9 +33,9 @@ export default function HeroBanner() {
               scale: [1.14, 1.05, 1.08, 1.14] 
             }}
             transition={{
-              duration: 19,
+              duration: 9,
               repeat: Infinity,
-              delay: index * 19,
+              delay: index * 9,
               ease: 'easeInOut'
             }}
           />
@@ -72,28 +74,30 @@ export default function HeroBanner() {
       {/* CONTENT - Documentary style */}
       <div className="relative z-20 container text-center pt-12 pb-20">
         {/* Eyebrow */}
-        <div className="mb-14 md:mb-16">
+        <div className="mb-16 md:mb-20">
           <span className="inline-block px-4 py-1 text-[10px] tracking-[3px] font-medium text-honey-300 border border-honey-300/40 rounded-full">
             DESDE 2013 • BARRIO • FÚTBOL • MEMORIA
           </span>
         </div>
-
-        {/* TÍTULO GIGANTE */}
-        <div className="-space-y-3 md:-space-y-5 mb-7">
-          <h1 className="hero-title">ABEJAS</h1>
+        <div className='h-4'></div>
+        {/* TÍTULO GIGANTE - Estructura limpia */}
+        <div className="mt-10 md:mt-14 mb-8 flex flex-col items-center">
+          <h1 className="hero-title mb-1">ABEJAS</h1>
           <h1 className="hero-title-fc">FC</h1>
         </div>
 
-        {/* FRASE centrada con comillas amarillas grandes */}
-        <div className="max-w-[620px] mx-auto mb-14 text-center">
-          <div className="hero-quote mb-1">“</div>
-          <p className="hero-phrase">
-            Un equipo que no debería existir.<br />
-            Y sin embargo, vuela.
+        {/* FRASE con quotes en posición editorial */}
+        <div className="mb-14 text-center">
+          <p className="hero-phrase inline-flex items-start justify-center max-w-[620px]">
+            <span className="hero-quote -mr-2">“</span>
+            <span className="leading-tight">
+              Un equipo que no debería existir.<br />
+              Y sin embargo, vuela.
+            </span>
+            <span className="hero-quote self-end -ml-2 -mb-2">”</span>
           </p>
-          <div className="hero-quote mt-1">”</div>
         </div>
-
+      <div className='h-10'></div>
         {/* BOTONES con lógica UX/UI clara */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a href={ROUTES.TIMELINE} className="hero-cta-primary">
@@ -111,8 +115,8 @@ export default function HeroBanner() {
         animate={{ opacity: [0.3, 0.75, 0.3] }}
         transition={{ duration: 3.5, repeat: Infinity }}
       >
-        <div className="text-[10px] tracking-[4px] text-white/35">SCROLL TO ENTER</div>
-        <div className="w-px h-11 bg-gradient-to-b from-white/25 to-transparent" />
+        <div className="text-[10px] tracking-[4px] text-honey-300/85">DESLIZA PARA ENTRAR</div>
+        <div className="w-px h-11 bg-gradient-to-b from-honey-300/65 to-transparent" />
       </motion.div>
     </section>
   )

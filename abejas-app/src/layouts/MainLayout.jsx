@@ -19,7 +19,7 @@ export default function MainLayout({ children }) {
     <div className="grain min-h-screen flex flex-col bg-void">
       {/* ─── NAVBAR ─── */}
       <nav
-        className={`navbar-glass fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
+        className={`navbar-glass sticky top-0 left-0 right-0 z-[100] transition-all duration-500 ${
           scrolled ? 'navbar-glass scrolled' : ''
         }`}
       >
@@ -129,7 +129,8 @@ export default function MainLayout({ children }) {
 
             {/* Quote */}
             <blockquote className="footer-quote text-center md:text-right max-w-xs">
-              "Las abejas no saben de aerodinámica… Y vuelan."
+              "Las abejas no saben de aerodinámica… <br />
+              Y vuelan."
             </blockquote>
           </div>
 
