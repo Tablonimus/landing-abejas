@@ -28,7 +28,7 @@ export default function PaperClip({ paper, index = 0 }) {
 
       <p className="text-honey-400 text-xs font-medium mb-2">{paper.fecha}</p>
 
-      <h3 className="font-editorial text-xl md:text-2xl font-bold leading-snug text-void mb-4 group-hover:text-honey-500 transition-colors">
+      <h3 className="font-editorial text-[21px] md:text-[23px] font-extrabold leading-tight tracking-[-0.3px] !text-[#111111] mb-4 group-hover:text-honey-600 transition-colors">
         {paper.titulo}
       </h3>
 

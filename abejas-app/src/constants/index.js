@@ -4,7 +4,7 @@
 
 export const NAV_ITEMS = [
   { label: 'Inicio', path: '/', icon: 'Home' },
-  { label: 'Timeline', path: '/timeline', icon: 'History' },
+  { label: 'El Vuelo', path: '/timeline', icon: 'History' },
   { label: 'Museo', path: '/museum', icon: 'Award' },
   { label: 'Crónicas', path: '/chronicles', icon: 'Newspaper' },
   { label: 'Jugadores', path: '/players', icon: 'Users' },

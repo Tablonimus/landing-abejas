@@ -33,9 +33,9 @@ export default function HeroBanner() {
               scale: [1.14, 1.05, 1.08, 1.14] 
             }}
             transition={{
-              duration: 9,
+              duration: 7,
               repeat: Infinity,
-              delay: index * 9,
+              delay: index * 7,
               ease: 'easeInOut'
             }}
           />
