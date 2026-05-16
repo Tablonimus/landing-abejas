@@ -9,6 +9,7 @@ import Quotes from '../pages/Quotes.jsx'
 import Papers from '../pages/Papers.jsx'
 import AfterMatch from '../pages/AfterMatch.jsx'
 import Jerseys from '../pages/Jerseys.jsx'
+import Shields from '../pages/Shields.jsx'
 
 export default function AppRoutes() {
   return (
@@ -23,6 +24,7 @@ export default function AppRoutes() {
         <Route path="/papers" element={<Papers />} />
         <Route path="/aftermatch" element={<AfterMatch />} />
         <Route path="/jerseys" element={<Jerseys />} />
+        <Route path="/shields" element={<Shields />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
     </Routes>

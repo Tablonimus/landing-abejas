@@ -32,6 +32,13 @@ const museumSections = [
     desc: 'Policiales sin filtro',
     path: '/papers',
   },
+  {
+    id: 'shields',
+    label: 'Escudos Históricos',
+    icon: <ImageIcon size={16} />,
+    desc: 'La evolución de nuestro emblema',
+    path: '/shields',
+  },
 ]
 
 export default function Museum() {
