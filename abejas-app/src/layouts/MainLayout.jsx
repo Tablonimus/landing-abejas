@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { NAV_ITEMS } from '../constants'
 import { useLocation, NavLink } from 'react-router-dom'
-import { Menu, X, Hexagon } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 export default function MainLayout({ children }) {
@@ -23,15 +23,16 @@ export default function MainLayout({ children }) {
           scrolled ? 'navbar-glass scrolled' : ''
         }`}
       >
-        <div className="max-w-[1400px] mx-auto px-5 md:px-8 flex items-center justify-between h-[68px]">
+        <div className="container flex items-center justify-between h-[68px]">
           {/* Brand */}
-          <a href="/" className="navbar-brand group">
-            <Hexagon
-              className="navbar-logo text-honey-200"
-              fill="currentColor"
-              strokeWidth={0.5}
-              stroke="rgba(0,0,0,0.6)"
-            />
+          <a href="/" className="navbar-brand group flex items-center gap-3">
+            <div className="w-9 h-9 rounded-full overflow-hidden border border-white/10 flex-shrink-0">
+              <img 
+                src="/src/assets/logos/logo_insitucional.jpg" 
+                alt="Abejas FC" 
+                className="w-full h-full object-cover" 
+              />
+            </div>
             <span className="navbar-title group-hover:text-honey-300">
               ABEJAS FC
             </span>
@@ -99,20 +100,25 @@ export default function MainLayout({ children }) {
       </nav>
 
       {/* ─── MAIN ─── */}
-      <main className="flex-1 pt-[80px] md:pt-[90px]">{children}</main>
+      <main className="flex-1 pt-[80px] md:pt-[90px]">
+        <div className="container">
+          {children}
+        </div>
+      </main>
 
       {/* ─── FOOTER ─── */}
       <footer className="footer relative">
-        <div className="max-w-[1400px] mx-auto px-5 md:px-8 py-16">
+        <div className="container py-16">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             {/* Brand */}
             <div className="flex items-center gap-4">
-              <Hexagon
-                className="footer-brand-mark text-honey-200"
-                fill="currentColor"
-                strokeWidth={0.5}
-                stroke="rgba(0,0,0,0.6)"
-              />
+              <div className="w-10 h-10 rounded-full overflow-hidden border border-white/10 flex-shrink-0">
+                <img 
+                  src="/src/assets/logos/logo_insitucional.jpg" 
+                  alt="Abejas FC" 
+                  className="w-full h-full object-cover" 
+                />
+              </div>
               <div>
                 <p className="footer-brand-name">ABEJAS FC</p>
                 <p className="footer-tagline">El documental interactivo de un equipo que no debería existir</p>

@@ -1,169 +1,178 @@
-import { motion } from 'framer-motion'
-import { Beer, Music, Flame, Trophy } from 'lucide-react'
 import { useState } from 'react'
-import { tercerTiempo } from '../data/mocks'
+import { motion, AnimatePresence } from 'framer-motion'
+import { X, ChevronLeft, ChevronRight } from 'lucide-react'
 
-const icons = { 'Playlist': Music, Bebida: Beer, Ranking: Trophy, Asado: Flame }
-const bgColors = {
-  'Playlist': 'from-violet-900/30 to-void/80',
-  'Bebida': 'from-amber-900/30 to-void/80',
-  'Asado': 'from-orange-900/20 to-void/80',
-  'Ranking': 'from-honey-300/10 to-void/80',
-}
+// Curated epic photos from tercer_tiempo
+const gallery = [
+  { id: 1, src: '/src/assets/tercer_tiempo/facebook/Asado 1.jpg', caption: 'Asado post-derrota', date: '2018', tag: 'Fuego' },
+  { id: 2, src: '/src/assets/tercer_tiempo/facebook/After 1.jpg', caption: 'El after que duró hasta el amanecer', date: '2019', tag: 'Caos' },
+  { id: 3, src: '/src/assets/tercer_tiempo/facebook/Abrazo equipo.jfif', caption: 'Abrazo después del gol', date: '2021', tag: 'Hermandad' },
+  { id: 4, src: '/src/assets/tercer_tiempo/facebook/Nacho Asado.jpg', caption: 'Nacho controlando el fuego', date: '2017', tag: 'Leyenda' },
+  { id: 5, src: '/src/assets/tercer_tiempo/facebook/Cumple Nacho.jpg', caption: 'Cumple de Nacho con el equipo', date: '2022', tag: 'Fiesta' },
+  { id: 6, src: '/src/assets/tercer_tiempo/facebook/última cena abeja.jpg', caption: 'La última cena abeja', date: '2023', tag: 'Mística' },
+  { id: 7, src: '/src/assets/tercer_tiempo/facebook/Valhalla barril.jpg', caption: 'Barril en Valhalla', date: '2019', tag: 'Cerveza' },
+  { id: 8, src: '/src/assets/tercer_tiempo/facebook/Davo chori After.jpg', caption: 'Davo con el chori sagrado', date: '2016', tag: 'Memoria' },
+  { id: 9, src: '/src/assets/tercer_tiempo/facebook/Festejo Abejas TDM.jpg', caption: 'Festejo TDM', date: '2022', tag: 'Gloria' },
+  { id: 10, src: '/src/assets/tercer_tiempo/facebook/Guille botella tupper.jpg', caption: 'Guille y la botella legendaria', date: '2018', tag: 'Caos' },
+  { id: 11, src: '/src/assets/tercer_tiempo/facebook/Asado casa Tonga.jpg', caption: 'Asado en casa de Tonga', date: '2020', tag: 'Hogar' },
+  { id: 12, src: '/src/assets/tercer_tiempo/facebook/Migue cerveza.jfif', caption: 'Migue con la pinta perfecta', date: '2017', tag: 'Birra' },
+  { id: 13, src: '/src/assets/tercer_tiempo/facebook/Equipo.jfif', caption: 'El equipo completo', date: '2015', tag: 'Historia' },
+  { id: 14, src: '/src/assets/tercer_tiempo/facebook/Camiseta negra Tonga Ardujpg.jpg', caption: 'Camiseta negra histórica', date: '2016', tag: 'Identidad' },
+  { id: 15, src: '/src/assets/tercer_tiempo/facebook/Pali After.jpg', caption: 'Pali en modo after', date: '2021', tag: 'Energía' },
+  { id: 16, src: '/src/assets/tercer_tiempo/facebook/Fernando y Abeja.jpg', caption: 'Fernet y Abeja', date: '2019', tag: 'Ritual' },
+  { id: 17, src: '/src/assets/tercer_tiempo/facebook/Disco Vlado 1.jpg', caption: 'DJ Kuden en acción', date: '2018', tag: 'Música' },
+  { id: 18, src: '/src/assets/tercer_tiempo/facebook/Nacho Momo Gamba.jfif', caption: 'Nacho y Momo', date: '2022', tag: 'Dúo' },
+]
+
+const floatingPhrases = [
+  "Por la Nisman", "Illuminati", "Passet", "Por los caídos", 
+  "Que viva el after", "La última birra", "Zonda eterno"
+]
 
 export default function AfterMatch() {
-  const [activeFilter, setActiveFilter] = useState('Todos')
-  const categorias = ['Todos', 'Playlist', 'Bebida', 'Asado', 'Ranking']
+  const [selectedIndex, setSelectedIndex] = useState(null)
+  const [showPhrases] = useState(true)
 
-  const filtered = tercerTiempo
-    .filter((t) => activeFilter === 'Todos' || t.categoria === activeFilter)
+  const openModal = (index) => setSelectedIndex(index)
+  const closeModal = () => setSelectedIndex(null)
+  const goTo = (newIndex) => {
+    if (newIndex < 0) newIndex = gallery.length - 1
+    if (newIndex >= gallery.length) newIndex = 0
+    setSelectedIndex(newIndex)
+  }
+
+  const current = selectedIndex !== null ? gallery[selectedIndex] : null
 
   return (
-    <div className="bg-void min-h-screen">
-<section className="relative py-16 md:py-24 lg:py-36 overflow-hidden">
-         <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_100%,rgba(250,204,21,0.1),transparent)]" />
-
-         <div className="relative z-10 max-w-[900px] mx-auto px-4 sm:px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <span className="inline-flex items-center gap-2 text-honey-300 text-xs uppercase tracking-[0.4em]">
-              <Beer size={14} />
-              Lo que pasa después del partido
-              <Beer size={14} />
-            </span>
-            <h1 className="font-[Bebas_Neue] text-6xl md:text-8xl lg:text-9xl tracking-tight text-pitch-100 mt-4 mb-6">
-              TERCER
-              <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-honey-200 to-amber-600">
-                TIEMPO
-              </span>
-            </h1>
-            <p className="font-editorial text-xl text-pitch-300 italic max-w-lg mx-auto">
-              "El after match. O lo que viene después del pitido final: lo que realmente importa."
-            </p>
-          </motion.div>
+    <div className="bg-black min-h-screen text-white overflow-hidden">
+      {/* HEADER - Documentary style */}
+      <div className="relative pt-20 pb-16 px-6 text-center border-b border-white/10">
+        <div className="max-w-3xl mx-auto">
+          <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full border border-honey-300/30 text-xs tracking-[3px] text-honey-300 mb-6">
+            ARCHIVO 2013 — PRESENTE
+          </div>
+          <h1 className="font-editorial text-[92px] md:text-[120px] leading-none tracking-[-6px] mb-4">
+            TERCER<br />TIEMPO
+          </h1>
+          <p className="text-2xl text-white/70 max-w-md mx-auto">
+            El mural de las noches que no terminan.
+          </p>
         </div>
-      </section>
+      </div>
 
-{/* Filters */}
-       <section className="max-w-[1200px] mx-auto px-4 sm:px-6 pb-8">
-        <div className="flex flex-wrap gap-2">
-          {categorias.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveFilter(cat)}
-              className={`px-4 py-2 rounded-full text-xs font-medium tracking-wide transition-all ${
-                activeFilter === cat
-                  ? 'bg-honey-300 text-void'
-                  : 'bg-pitch-700/50 text-pitch-300 border border-pitch-600/40 hover:border-pitch-400'
-              }`}
+      {/* MASONRY GALLERY */}
+      <div className="container pt-12 pb-24 relative">
+        {/* Floating phrases */}
+        {showPhrases && (
+          <div className="absolute inset-0 pointer-events-none z-10">
+            {floatingPhrases.slice(0, 5).map((phrase, i) => (
+              <div
+                key={i}
+                className="absolute text-[10px] uppercase tracking-[3px] text-honey-300/40 font-mono"
+                style={{
+                  left: `${15 + (i % 3) * 28}%`,
+                  top: `${20 + Math.floor(i / 3) * 35}%`,
+                  transform: `rotate(${i % 2 === 0 ? -8 : 7}deg)`
+                }}
+              >
+                {phrase}
+              </div>
+            ))}
+          </div>
+        )}
+
+        <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 xl:columns-5 gap-4">
+          {gallery.map((photo, index) => (
+            <motion.div
+              key={photo.id}
+              whileHover={{ scale: 1.015 }}
+              onClick={() => openModal(index)}
+              className="group mb-4 break-inside-avoid cursor-pointer relative overflow-hidden rounded-2xl bg-zinc-950 border border-white/10"
             >
-              {cat}
-            </button>
+              <div className="relative">
+                <img
+                  src={photo.src}
+                  alt={photo.caption}
+                  className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.08]"
+                  loading="lazy"
+                />
+                
+                {/* Dark cinematic overlay */}
+                <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/80" />
+                
+                {/* Yellow glow on hover */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_50%_80%,rgba(250,204,21,0.15),transparent_70%)]" />
+
+                {/* Metadata */}
+                <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
+                  <div className="flex justify-between items-end">
+                    <div>
+                      <div className="text-xs tracking-[1.5px] text-honey-300/90 mb-1">{photo.date}</div>
+                      <div className="font-medium text-[15px] leading-tight pr-4">{photo.caption}</div>
+                    </div>
+                    <div className="text-[10px] px-2.5 py-px rounded bg-white/10 text-white/60 font-mono tracking-widest">
+                      {photo.tag}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           ))}
         </div>
-      </section>
+      </div>
 
-{/* Content */}
-       <section className="py-12 max-w-[1200px] mx-auto px-4 sm:px-6">
-        <div className="grid md:grid-cols-2 gap-6">
-          {filtered.map((item, i) => {
-            const Icon = icons[item.categoria] || Beer
-            const bg = bgColors[item.categoria] || 'from-pitch-700/50 to-void/80'
-
-            return (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className={`group relative rounded-2xl bg-gradient-to-br ${bg} border border-pitch-600/30 p-7 md:p-9 overflow-hidden hover:border-honey-300/25 transition-all duration-500`}
+      {/* PREMIUM FULLSCREEN MODAL */}
+      <AnimatePresence>
+        {current && (
+          <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/95 backdrop-blur-xl p-4">
+            <div className="relative max-w-[1400px] w-full">
+              {/* Close */}
+              <button
+                onClick={closeModal}
+                className="absolute -top-2 -right-2 z-50 p-3 text-white/60 hover:text-white transition-colors"
               >
-                <div className="absolute top-0 right-0 text-8xl opacity-5 group-hover:opacity-10 transition-opacity">
-                  <Icon className="text-honey-300 w-32 h-32" />
-                </div>
+                <X size={28} />
+              </button>
 
-                <div className="relative z-10">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-xl bg-honey-300/10 flex items-center justify-center text-honey-200">
-                      <Icon size={18} />
+              {/* Image */}
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10">
+                <img
+                  src={current.src}
+                  alt={current.caption}
+                  className="max-h-[88vh] w-full object-contain bg-black"
+                />
+
+                {/* Bottom info bar */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-8">
+                  <div className="flex justify-between items-end">
+                    <div>
+                      <div className="text-honey-300 text-xs tracking-[2px] mb-1">{current.date} • {current.tag}</div>
+                      <div className="text-white text-3xl font-light tracking-tight">{current.caption}</div>
                     </div>
-                    <span className="text-honey-300 text-[10px] font-bold uppercase tracking-[0.2em]">{item.categoria}</span>
-                  </div>
-
-                  <h3 className="font-[Bebas_Neue] text-2xl tracking-wider text-pitch-100 mb-3 group-hover:text-honey-200 transition-colors">
-                    {item.titulo}
-                  </h3>
-
-                  <p className="text-pitch-300 text-sm mb-5">{item.desc}</p>
-
-                  <div className="space-y-2">
-                    {item.items.map((song, j) => (
-                      <motion.div
-                        key={j}
-                        initial={{ x: -10, opacity: 0 }}
-                        whileInView={{ x: 0, opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: i * 0.1 + j * 0.05 }}
-                        className="flex items-center gap-3 py-2 px-3 rounded-lg hover:bg-pitch-700/30 transition-colors"
-                      >
-                        <span className="w-5 h-5 rounded-full bg-honey-300/15 text-honey-300 text-[10px] font-bold flex items-center justify-center flex-shrink-0">
-                          {j + 1}
-                        </span>
-                        <span className="text-pitch-200 text-sm">{song}</span>
-                      </motion.div>
-                    ))}
+                    <div className="text-right text-xs text-white/50 font-mono">
+                      {selectedIndex + 1} / {gallery.length}
+                    </div>
                   </div>
                 </div>
-              </motion.div>
-            )
-          })}
-        </div>
-
-        {/* Story highlight */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-14 rounded-3xl border border-honey-300/20 bg-gradient-to-br from-honey-300/8 via-pitch-700/30 to-void/80 p-10 md:p-14 relative overflow-hidden"
-        >
-          <div className="absolute -top-6 -right-6 text-[8rem] opacity-[0.04]">🍻</div>
-
-          <div className="relative z-10 grid md:grid-cols-3 gap-8">
-            <div className="md:col-span-2">
-              <div className="flex items-center gap-3 mb-4">
-                <Flame className="w-5 h-5 text-honey-300" />
-                <span className="font-display text-honey-300 text-xs uppercase tracking-[0.3em]">La noche más legendaria</span>
               </div>
-              <h3 className="font-[Bebas_Neue] text-3xl md:text-4xl tracking-wider text-pitch-100 mb-4">
-                ASADO + ZONDA + BOMBEROS
-              </h3>
-              <p className="text-pitch-200 leading-relaxed">
-                Junio de 2017, La Platea. Partido, asado, Zonda. Humo. Vecinos llaman a los bomberos.
-                Los bomberos llegan, confirman: es un asado. Se van. Abejas les ofrece un chori.
-                Lo rechazan. La noticia sale en diarios de todo el país.
-                Una noche que resume todo lo que es Abejas FC: fútbol, viento, fuego y humor.
-              </p>
-            </div>
-            <div className="hidden md:flex flex-col gap-3">
-              {['Partido de fútbol', 'Asado bien regado', 'Segundo partido', 'Tercer tiempo épico'].map((item, j) => (
-                <div key={j} className="flex items-center gap-3 text-pitch-400 text-sm">
-                  <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${
-                    j === 2 ? 'bg-honey-300/20 text-honey-200' : 'bg-pitch-600/40 text-pitch-300'
-                  }`}>
-                    {j + 1}
-                  </span>
-                  {item}
-                </div>
-              ))}
+
+              {/* Navigation */}
+              <button 
+                onClick={() => goTo(selectedIndex - 1)}
+                className="absolute left-4 top-1/2 -translate-y-1/2 p-4 text-white/40 hover:text-white transition-colors"
+              >
+                <ChevronLeft size={42} />
+              </button>
+              <button 
+                onClick={() => goTo(selectedIndex + 1)}
+                className="absolute right-4 top-1/2 -translate-y-1/2 p-4 text-white/40 hover:text-white transition-colors"
+              >
+                <ChevronRight size={42} />
+              </button>
             </div>
           </div>
-        </motion.div>
-      </section>
+        )}
+      </AnimatePresence>
     </div>
   )
 }
