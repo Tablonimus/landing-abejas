@@ -19,8 +19,8 @@ export default function Home() {
        {/* ── HERO QUOTES CAROUSEL ── */}
        <QuoteCarousel quotes={heroQuotes} />
 
-{/* ── FEATURED CHRONICLES ── */}
-        <section className="py-16 md:py-24 lg:py-32">
+        {/* ── FEATURED CHRONICLES ── */}
+         <section className="py-20 md:py-28 lg:py-36">
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
            <Reveal>
              <div className="flex items-end justify-between mb-14 flex-wrap gap-4">
@@ -83,8 +83,8 @@ export default function Home() {
        {/* ── STATS ── */}
        <StatsStrip stats={stats} />
 
-{/* ── FEATURED PLAYERS ── */}
-        <section className="py-16 md:py-24 lg:py-32">
+        {/* ── FEATURED PLAYERS ── */}
+         <section className="py-20 md:py-28 lg:py-36">
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
            <Reveal>
              <div className="flex items-end justify-between mb-14 flex-wrap gap-4">
@@ -151,6 +151,7 @@ export default function Home() {
              {[
                { icon: <History size={20} />, label: 'Timeline', desc: 'De diciembre de 2013 a hoy', path: ROUTES.TIMELINE, color: 'honey' },
                { icon: <Award size={20} />, label: 'Museo', desc: 'Camisetas, frases, trofeos', path: ROUTES.MUSEUM, color: 'amber' },
+                { icon: <Award size={20} />, label: 'Camisetas', desc: 'El manto sagrado', path: '/jerseys', color: 'honey' },
                { icon: <Newspaper size={20} />, label: 'Crónicas', desc: 'El documental escrito', path: ROUTES.CHRONICLES, color: 'stone' },
                { icon: <Users size={20} />, label: 'Jugadores', desc: '16 leyendas vivas', path: ROUTES.PLAYERS, color: 'honey' },
                { icon: <Quote size={20} />, label: 'Frases', desc: 'La fraseología abeja', path: ROUTES.QUOTES, color: 'amber' },

@@ -10,6 +10,7 @@ const museumSections = [
     label: 'Camisetas',
     icon: <Award size={16} />,
     desc: '10 años de evolución del manto sagrado',
+    path: '/jerseys',
   },
   {
     id: 'frases',
@@ -36,8 +37,8 @@ const museumSections = [
 export default function Museum() {
    return (
      <div className="bg-void min-h-screen">
-       {/* Header */}
-<section className="relative py-16 md:py-24 lg:py-36 overflow-hidden">
+        {/* Header */}
+        <section className="relative pt-20 pb-16 md:pt-28 md:pb-24 lg:pt-32 lg:pb-28 overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_-20%,rgba(250,204,21,0.12),transparent)]" />
 
            <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
@@ -83,7 +84,7 @@ export default function Museum() {
        </section>
 
 {/* Jerseys */}
-        <section id="jerseys" className="py-16 md:py-20 max-w-[1200px] mx-auto px-4 sm:px-6">
+         <section id="jerseys" className="py-20 md:py-24 max-w-[1200px] mx-auto px-4 sm:px-6">
          <Reveal>
            <SectionLabel>Camisetas históricas</SectionLabel>
            <div className="flex items-baseline justify-between mb-10">
@@ -101,7 +102,7 @@ export default function Museum() {
        </section>
 
 {/* TheStar */}
-        <section className="py-16 md:py-20 max-w-[1200px] mx-auto px-4 sm:px-6">
+         <section className="py-20 md:py-24 max-w-[1200px] mx-auto px-4 sm:px-6">
          <motion.div
            initial={{ opacity: 0, scale: 0.95 }}
            whileInView={{ opacity: 1, scale: 1 }}

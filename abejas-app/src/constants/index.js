@@ -17,6 +17,7 @@ export const ROUTES = {
   HOME: '/',
   TIMELINE: '/timeline',
   MUSEUM: '/museum',
+  JERSEYS: '/jerseys',
   CHRONICLES: '/chronicles',
   PLAYERS: '/players',
   QUOTES: '/quotes',
