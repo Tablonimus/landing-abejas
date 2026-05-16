@@ -41,10 +41,10 @@ export default function HeroBanner() {
           />
         ))}
         
-        {/* Deep cinematic overlays */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/82 via-black/72 to-black/96" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_28%,rgba(0,0,0,0.6)_0%,transparent_78%)]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-transparent to-black/55" />
+        {/* Deep cinematic overlays - reduced opacity for more visible photo */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/45 to-black/82" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_28%,rgba(0,0,0,0.38)_0%,transparent_78%)]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/38 via-transparent to-black/38" />
       </div>
 
       {/* LARGER CINEMATIC POLAROIDS */}
