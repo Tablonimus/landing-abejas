@@ -1,68 +1,82 @@
 import { motion } from 'framer-motion'
-import { Cake, Plane, Calendar } from 'lucide-react'
 
 export default function PlayerCard({ player, index = 0 }) {
-  const statusConfig = {
-    Activo: { color: 'text-green-400', bg: 'bg-green-500/10', border: 'border-green-500/30' },
-    'En España': { color: 'text-blue-400', bg: 'bg-blue-500/10', border: 'border-blue-500/30' },
-    'Viene y va': { color: 'text-purple-400', bg: 'bg-purple-500/10', border: 'border-purple-500/30' },
-    'Se fue': { color: 'text-pitch-400', bg: 'bg-pitch-600/30', border: 'border-pitch-500/30' },
-  }
-
   return (
     <motion.article
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.15 }}
-      transition={{ duration: 0.55, delay: index * 0.07 }}
-      whileHover={{ y: -6 }}
-      className="group relative rounded-2xl border border-pitch-600/40 bg-pitch-700/50 overflow-hidden hover:border-honey-300/30 transition-all duration-500"
+      transition={{ duration: 0.6, delay: index * 0.06 }}
+      whileHover={{ y: -8 }}
+      className="group relative overflow-hidden rounded-3xl border border-white/10 bg-zinc-950 cursor-default"
     >
-      {/* Top color stripe */}
-      <div className="h-2 w-full" style={{ background: `linear-gradient(90deg, ${player.colores?.[0] || '#F59E0B'}, ${player.colores?.[1] || '#1C1917'})` }} />
+      {/* Foto protagonista */}
+      <div className="relative h-80 overflow-hidden">
+        <img
+          src={player.foto || "/images/placeholder-player.jpg"}
+          alt={player.alias}
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.12]"
+        />
+        
+        {/* Overlay cinematográfico */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/70 to-black" />
+        
+        {/* Glow amarillo sutil en hover */}
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_50%_80%,rgba(250,204,21,0.12),transparent_70%)]" />
 
-      <div className="p-6 md:p-8">
-        {/* Avatar circle */}
-        <div className="flex items-end justify-between mb-5">
-          <div
-            className="w-16 h-16 rounded-full flex items-center justify-center font-display text-3xl text-void"
-            style={{ background: `linear-gradient(135deg, ${player.colores?.[0] || '#F59E0B'}, ${player.colores?.[1] || '#1C1917'})` }}
-          >
-            {player.alias.charAt(0)}
-          </div>
-          <span className={`px-3 py-1 text-[10px] font-semibold uppercase tracking-wider rounded-full ${statusConfig[player.estado]?.bg || 'bg-pitch-600/30'} ${statusConfig[player.estado]?.color || 'text-pitch-400'} border ${statusConfig[player.estado]?.border || 'border-pitch-500/30'}`}>
+        {/* Estado */}
+        <div className="absolute top-5 right-5">
+          <span className={`px-4 py-1 text-xs font-semibold tracking-widest rounded-full border ${
+            player.estado === "Activo" 
+              ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/30" 
+              : "bg-white/10 text-white/70 border-white/20"
+          }`}>
             {player.estado}
           </span>
         </div>
 
-        <h3 className="font-[Bebas_Neue] text-2xl md:text-3xl tracking-wider text-pitch-100 mb-1 group-hover:text-honey-300 transition-colors">
-          {player.alias}
-        </h3>
+        {/* Nombre grande */}
+        <div className="absolute bottom-0 left-0 right-0 p-6">
+          <h3 className="font-display text-5xl tracking-[-2px] text-white leading-none mb-1">
+            {player.alias}
+          </h3>
+          <p className="text-white/70 text-sm tracking-wide">{player.nombre}</p>
+        </div>
+      </div>
 
-        <p className="text-pitch-300 text-sm mb-1">{player.nombre}</p>
-        <p className="text-honey-300/70 text-xs font-medium mb-4">{player.rol}</p>
+      <div className="p-6">
+        {/* Rol / Apodo */}
+        <div className="flex items-center gap-3 mb-4">
+          <span className="px-4 py-1 text-xs font-bold tracking-[1.5px] bg-honey-300/10 text-honey-300 rounded-full border border-honey-300/20">
+            {player.rol}
+          </span>
+          {player.desde && (
+            <span className="text-xs text-white/50 tracking-widest">Desde {player.desde}</span>
+          )}
+        </div>
 
-        <p className="text-pitch-300 text-sm leading-relaxed line-clamp-4">{player.lore}</p>
-
-        {player.frases?.length > 0 && (
-          <div className="mt-5 pt-4 border-t border-pitch-600/40">
-            {player.frases.map((f, i) => (
-              <p key={i} className="font-editorial italic text-pitch-200 text-sm">
-                "{f}"
-              </p>
-            ))}
-          </div>
+        {/* Frase memorable */}
+        {player.frase && (
+          <p className="font-editorial italic text-lg text-white/90 leading-tight mb-5">
+            “{player.frase}”
+          </p>
         )}
 
-        <div className="flex items-center gap-3 mt-4 text-xs text-pitch-400">
-          <span className="flex items-center gap-1">
-            <Calendar size={12} />
-            {player.desde}
-          </span>
-          <span className="flex items-center gap-1">
-            {player.estado === 'En España' ? <Plane size={12} /> : <Cake size={12} />}
-            {player.nacionalidad}
-          </span>
+        {/* Lore */}
+        <p className="text-pitch-300 text-sm leading-relaxed line-clamp-3 mb-5">
+          {player.lore}
+        </p>
+
+        {/* Tags */}
+        <div className="flex flex-wrap gap-2">
+          {player.tags?.map((tag, i) => (
+            <span 
+              key={i} 
+              className="px-3 py-0.5 text-[10px] tracking-widest bg-white/5 text-white/60 rounded-full border border-white/10"
+            >
+              {tag}
+            </span>
+          ))}
         </div>
       </div>
     </motion.article>

@@ -12,6 +12,7 @@ export const NAV_ITEMS = [
   { label: 'Diarios', path: '/diarios', icon: 'FileText' },
   { label: 'Tercer Tiempo', path: '/tercer-tiempo', icon: 'Beer' },
   { label: 'Entrevistas', path: '/entrevistas', icon: 'Users' },
+  { label: 'Datos', path: '/datos', icon: 'BarChart' },
 ]
 
 export const ROUTES = {

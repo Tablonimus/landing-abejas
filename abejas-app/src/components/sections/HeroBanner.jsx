@@ -75,11 +75,11 @@ export default function HeroBanner() {
       <div className="relative z-20 container text-center pt-12 pb-20">
         {/* Eyebrow */}
         <div className="mb-16 md:mb-20">
-          <span className="inline-block px-4 py-1 text-[10px] tracking-[3px] font-medium text-honey-300 border border-honey-300/40 rounded-full">
-            DESDE 2013 • BARRIO • FÚTBOL • MEMORIA
+          <span className="inline-block !px-4 py-1 text-[15px] tracking-[3px] font-medium text-honey-300 border border-honey-300/40 rounded-full">
+           BARRIO • FUTBOL • ASADO • MEMORIA
           </span>
         </div>
-        <div className='h-4'></div>
+        <div className='h-6'></div>
         {/* TÍTULO GIGANTE - Estructura limpia */}
         <div className="mt-10 md:mt-14 mb-8 flex flex-col items-center">
           <h1 className="hero-title mb-1">ABEJAS</h1>
@@ -100,11 +100,11 @@ export default function HeroBanner() {
       <div className='h-10'></div>
         {/* BOTONES con lógica UX/UI clara */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href={ROUTES.TIMELINE} className="hero-cta-primary">
+          <a href={ROUTES.TIEMPO} className="hero-cta-primary">
             VER LA HISTORIA
           </a>
-          <a href={ROUTES.CHRONICLES} className="hero-cta-secondary">
-            LEER LAS CRÓNICAS
+          <a href="/entrevistas" className="hero-cta-secondary">
+            ENTREVISTAS
           </a>
         </div>
       </div>

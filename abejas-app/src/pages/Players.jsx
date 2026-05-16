@@ -48,31 +48,33 @@ export default function Players() {
             </div>
           </Reveal>
 
-          {/* Filters - Más grande y visible */}
+          {/* Filtros y Búsqueda - Diseño Premium */}
           <Reveal>
-            <div className="flex flex-wrap items-center gap-4 mb-12">
-              <div className="relative w-full sm:w-auto">
-                <div className="absolute left-5 top-1/2 -translate-y-1/2 text-pitch-300">
-                  <Search size={20} />
+            <div className="mb-14">
+              {/* Buscador principal */}
+              <div className="relative max-w-2xl mb-8">
+                <div className="absolute left-6 top-1/2 -translate-y-1/2 text-honey-300/70">
+                  <Search size={22} />
                 </div>
                 <input
                   type="text"
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  placeholder="Buscar jugador..."
-                  className="w-full sm:w-80 pl-12 pr-6 py-[15px] bg-pitch-800/70 border border-pitch-600/50 rounded-full text-base text-pitch-100 placeholder-pitch-300 focus:outline-none focus:border-honey-300/60 transition-all"
+                  placeholder="Buscar leyendas del grupo..."
+                  className="w-full h-16 md:h-20 pl-16 pr-8 text-lg bg-pitch-900/80 border border-pitch-700/60 rounded-2xl text-white placeholder:text-pitch-400 focus:outline-none focus:border-honey-300/60 focus:ring-1 focus:ring-honey-300/30 transition-all duration-300 backdrop-blur-lg"
                 />
               </div>
 
+              {/* Filtros */}
               <div className="flex flex-wrap gap-3">
                 {estados.map((e) => (
                   <button
                     key={e}
                     onClick={() => setFilter(e)}
-                    className={`px-6 py-3 rounded-full text-sm font-semibold tracking-wide transition-all duration-300 ${
+                    className={`px-8 py-3.5 rounded-full text-sm font-semibold tracking-[1px] uppercase transition-all duration-300 ${
                       filter === e
-                        ? "bg-honey-300 text-void shadow-[0_0_20px_rgba(250,204,21,0.35)]"
-                        : "bg-pitch-800/60 text-pitch-200 border border-pitch-600/40 hover:border-honey-300/50 hover:text-honey-300"
+                        ? "bg-honey-300 text-black shadow-[0_0_24px_rgba(250,204,21,0.4)]"
+                        : "bg-pitch-900/70 text-pitch-200 border border-pitch-700/50 hover:border-honey-300/40 hover:text-honey-300"
                     }`}
                   >
                     {e}
@@ -83,7 +85,7 @@ export default function Players() {
           </Reveal>
 
           {/* Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filtered.map((p, i) => (
               <PlayerCard key={p.id} player={p} index={i} />
             ))}
