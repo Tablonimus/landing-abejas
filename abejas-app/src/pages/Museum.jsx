@@ -10,7 +10,7 @@ const museumSections = [
     label: 'Camisetas',
     icon: <Award size={16} />,
     desc: '10 años de evolución del manto sagrado',
-    path: '/jerseys',
+    path: '/camisetas',
   },
   {
     id: 'frases',
@@ -37,7 +37,7 @@ const museumSections = [
     label: 'Escudos Históricos',
     icon: <ImageIcon size={16} />,
     desc: 'La evolución de nuestro emblema',
-    path: '/shields',
+    path: '/escudos',
   },
 ]
 

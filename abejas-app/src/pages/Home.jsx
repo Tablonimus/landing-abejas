@@ -149,13 +149,13 @@ export default function Home() {
 
            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
              {[
-               { icon: <History size={20} />, label: 'Timeline', desc: 'De diciembre de 2013 a hoy', path: ROUTES.TIMELINE, color: 'honey' },
-               { icon: <Award size={20} />, label: 'Museo', desc: 'Camisetas, frases, trofeos', path: ROUTES.MUSEUM, color: 'amber' },
-                { icon: <Award size={20} />, label: 'Camisetas', desc: 'El manto sagrado', path: '/jerseys', color: 'honey' },
-               { icon: <Newspaper size={20} />, label: 'Crónicas', desc: 'El documental escrito', path: ROUTES.CHRONICLES, color: 'stone' },
-               { icon: <Users size={20} />, label: 'Jugadores', desc: '16 leyendas vivas', path: ROUTES.PLAYERS, color: 'honey' },
-               { icon: <Quote size={20} />, label: 'Frases', desc: 'La fraseología abeja', path: ROUTES.QUOTES, color: 'amber' },
-               { icon: <Newspaper size={20} />, label: 'Policiales', desc: 'Las noticias que no van en Deportes', path: ROUTES.PAPERS, color: 'stone' },
+{ icon: <History size={20} />, label: 'El Vuelo', desc: 'De 2013 a hoy', path: ROUTES.TIEMPO, color: 'honey' },
+                { icon: <Award size={20} />, label: 'Museo', desc: 'Camisetas, frases, trofeos', path: ROUTES.MUSEO, color: 'amber' },
+                { icon: <Award size={20} />, label: 'Camisetas', desc: 'El manto sagrado', path: ROUTES.CAMISETAS, color: 'honey' },
+                { icon: <Newspaper size={20} />, label: 'Crónicas', desc: 'El documental escrito', path: ROUTES.CRONICAS, color: 'stone' },
+                { icon: <Users size={20} />, label: 'Jugadores', desc: '16 leyendas vivas', path: ROUTES.JUGADORES, color: 'honey' },
+                { icon: <Quote size={20} />, label: 'Frases', desc: 'La fraseología abeja', path: ROUTES.FRASES, color: 'amber' },
+                { icon: <Newspaper size={20} />, label: 'Diarios', desc: 'Las noticias que no van en Deportes', path: ROUTES.DIARIOS, color: 'stone' },
              ].map((item, i) => (
                <motion.a
                  key={item.label}

@@ -10,21 +10,23 @@ import Papers from '../pages/Papers.jsx'
 import AfterMatch from '../pages/AfterMatch.jsx'
 import Jerseys from '../pages/Jerseys.jsx'
 import Shields from '../pages/Shields.jsx'
+import Entrevistas from '../pages/Entrevistas.jsx'
 
 export default function AppRoutes() {
   return (
     <Routes>
       <Route element={<RootLayout />}>
         <Route path="/" element={<Home />} />
-        <Route path="/timeline" element={<Timeline />} />
-        <Route path="/museum" element={<Museum />} />
-        <Route path="/chronicles" element={<Chronicles />} />
-        <Route path="/players" element={<Players />} />
-        <Route path="/quotes" element={<Quotes />} />
-        <Route path="/papers" element={<Papers />} />
-        <Route path="/aftermatch" element={<AfterMatch />} />
-        <Route path="/jerseys" element={<Jerseys />} />
-        <Route path="/shields" element={<Shields />} />
+        <Route path="/tiempo" element={<Timeline />} />
+        <Route path="/museo" element={<Museum />} />
+        <Route path="/cronicas" element={<Chronicles />} />
+        <Route path="/jugadores" element={<Players />} />
+        <Route path="/frases" element={<Quotes />} />
+        <Route path="/diarios" element={<Papers />} />
+        <Route path="/tercer-tiempo" element={<AfterMatch />} />
+        <Route path="/camisetas" element={<Jerseys />} />
+        <Route path="/escudos" element={<Shields />} />
+        <Route path="/entrevistas" element={<Entrevistas />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
     </Routes>

@@ -556,15 +556,6 @@ export const policiales = [
     tag: 'El Zonda',
     icon: '🔥',
   },
-  {
-    id: 999,
-    year: 'Presente',
-    date: '2026',
-    tag: 'Historia viva',
-    title: 'Estamos escribiendo la historia',
-    body: 'El enjambre sigue volando. Cada partido, cada asado y cada noche sigue sumando páginas a esta historia que nadie esperaba que existiera.',
-    icon: '✍️',
-  },
 ]
 
 // ─── HERO QUOTES ──────────────────────────────────────────
