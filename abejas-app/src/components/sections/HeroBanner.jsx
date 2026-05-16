@@ -103,8 +103,8 @@ export default function HeroBanner() {
           <a href={ROUTES.TIEMPO} className="hero-cta-primary">
             VER LA HISTORIA
           </a>
-          <a href="/entrevistas" className="hero-cta-secondary">
-            ENTREVISTAS
+          <a href="/datos" className="hero-cta-secondary">
+            DATOS
           </a>
         </div>
       </div>

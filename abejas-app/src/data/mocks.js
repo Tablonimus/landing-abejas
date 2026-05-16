@@ -446,34 +446,7 @@ export const chronicles = [
       },
     ],
   },
-  {
-    slug: 'estructura-10-anos',
-    title: 'Estructura de los 10 años',
-    subtitle: 'Crónica colaborativa del anecdotario',
-    author: 'Todos',
-    date: '2023',
-    tag: 'Documental',
-    heroQuote: '"Según las leyes de la aerodinámica, las abejas no deberían poder volar. Pero las abejas no saben de aerodinámica… Y vuelan."',
-    readTime: '12 min',
-    sections: [
-      {
-        heading: 'El anecdotario',
-        body: 'Lo que el Zonda no frustró: junio de 2017, La Platea. Asado. Partido. Viento Zonda. Humo. Vecinos llaman a los bomberos. Llegan. Conflicto internacional en un grupo de WhatsApp: una relación que termina mal y un jugador de norteamérica se va. Se crea un grupo nuevo sin él.',
-      },
-      {
-        heading: 'Los que se fueron',
-        body: 'Yael Todaro, Adrián Orrego, Julián "Momo" Arccidiacono y Santiago "Tino" Olivo: los cuatro que se fueron de Mendoza. Todos siguen siendo Abejas. La bandera del grupo no tiene fronteras.',
-      },
-      {
-        heading: 'La fraseología',
-        body: 'Del grito de gol al insulto más elaborado, Abejas tiene una lengua propia. "¡Passet!", "¡Benitez!", "¡Illuminati!", "¡Por la Nisman!". Cada expresión tiene historia, contexto y un momento exacto en que se originó.',
-      },
-      {
-        heading: 'Abejas en los diarios',
-        body: 'No en Deportes. En Policiales. Dos veces. El asado del Zonda y el conductor fantasma. Abejas FC tenía esa suerte.',
-      },
-    ],
-  },
+
 ]
 
 // ─── MÚSICA / TERCER TIEMPO ──────────────────────────────

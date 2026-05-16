@@ -5,60 +5,102 @@ import { X } from 'lucide-react'
 const datos = [
   {
     id: 1,
-    chapter: "Capítulo 01",
-    archive: "3 de diciembre de 2013",
-    name: "Nacho de la Rosa",
-    nickname: "El Vikingo",
-    role: "Fundador",
+    category: "Fundación",
     year: "2013",
-    quote: "El grupo lo armamos el Nacho y yo y lo sumamos al Tonga.",
-    shortDescription: "El día que se creó el grupo de Facebook que originó todo.",
-    story: "El día martes 3 de diciembre se armó el grupo. Y se comenzó con la tarea titánica de tratar de armar un fulbito para el día siguiente. El grupo se creó el martes 3 de diciembre de 2013. La primera convocatoria para partido fue para el 4/12/2013, pero se pospuso varios meses. Recién el 7/2/2014 pudimos jugar el primer partido en Al Cubo.",
-    highlightMoments: [
-      "Creación del grupo de Facebook",
-      "Primer partido en Al Cubo",
-      "Los primeros 14 jugadores"
-    ],
-    tags: ["Fundadores", "2013", "Origen"],
-    coverImage: "/images/datos/nacho.jpg"
+    question: "¿Cuándo nació Abejas FC?",
+    shortAnswer: "El martes 3 de diciembre de 2013.",
+    fullAnswer: "El grupo nació originalmente en Facebook, mucho antes de que WhatsApp fuera masivo. Nacho de la Rosa creó el grupo e invitó amigos y conocidos con los que alguna vez había jugado o hablado de fútbol.",
+    quote: "Este es el grupo donde se gestó todo.",
+    source: "Nacho",
+    tags: ["Fundación", "Facebook", "Historia"]
   },
   {
     id: 2,
-    chapter: "Capítulo 02",
-    archive: "2014 - 2016",
-    name: "Daniel Alejandro Calivares",
-    nickname: "Dani",
-    role: "Co-creador",
-    year: "2014",
-    quote: "Me quebré en marzo de 2014 y subí la foto al grupo.",
-    shortDescription: "La primera baja seria de la historia.",
-    story: "El grupo lo armamos el Nacho y yo y lo sumamos al Tonga. El primer partido 2014, comenzamos a jugar en canchitas de calle Independencia y después cambiamos a La Platea. Al poco tiempo de empezar a jugar, me quebré.",
-    highlightMoments: [
-      "Cambio a La Platea",
-      "La primera lesión importante",
-      "Consolidación del grupo"
-    ],
-    tags: ["Fundadores", "Lesión", "Historia"],
-    coverImage: "/images/datos/dani.jpg"
+    category: "Tecnología",
+    year: "2013",
+    question: "¿Por qué el grupo empezó en Facebook y no en WhatsApp?",
+    shortAnswer: "Porque mucha gente todavía no tenía smartphones.",
+    fullAnswer: "En 2013 WhatsApp todavía no era masivo y muchos integrantes usaban celulares sin sistema operativo moderno. Por eso la organización inicial se hizo completamente desde Facebook.",
+    quote: "Ante la no masividad de WhatsApp...",
+    source: "Nacho",
+    tags: ["Facebook", "WhatsApp", "Prehistoria"]
   },
   {
     id: 3,
-    chapter: "Capítulo 03",
-    archive: "2016",
-    name: "Gastón Morales (Tonga)",
-    nickname: "El Profe",
-    role: "Profesor de Educación Física",
+    category: "Primer Partido",
+    year: "2014",
+    question: "¿Cuándo se jugó el primer partido?",
+    shortAnswer: "El 7 de febrero de 2014.",
+    fullAnswer: "Aunque la primera convocatoria era para diciembre de 2013, el primer partido real recién pudo jugarse dos meses después, en Al Cubo, sobre calle Independencia.",
+    quote: "No me acordaba que jugamos recién dos meses después.",
+    source: "Nacho",
+    tags: ["Primer Partido", "Al Cubo", "Historia"]
+  },
+  {
+    id: 4,
+    category: "Primer Partido",
+    year: "2014",
+    question: "¿Quiénes jugaron el primer partido?",
+    shortAnswer: "Una mezcla de históricos, invitados y hermanos.",
+    fullAnswer: "Según la publicación original, participaron Sebastián Salas, Daniel Calivares, Mariano Bustos, Marcelo López, Pablo Baldaccini, Tincho Garnero, Gastón Morales Olivo (+2), Davo Soriano, Yael Todaro, Mati Groli, Topo Rodríguez y Nacho.",
+    quote: "Gastón Morales Olivo (+2 intuyo que sus hermanos).",
+    source: "Nacho",
+    tags: ["Players", "Primer Partido", "Canon"]
+  },
+  {
+    id: 5,
+    category: "Economía Argentina",
+    year: "2014",
+    question: "¿Cuánto costaba jugar al fútbol en 2014?",
+    shortAnswer: "50 pesos alcanzaban para cancha y porrón.",
+    fullAnswer: "La cancha costaba 420 pesos. La recomendación oficial era llevar 50 pesos para cubrir el partido y también la bebida posterior.",
+    quote: "Lleven 50 para el porron/gaseosa/licuado posterior.",
+    source: "Nacho",
+    tags: ["Argentina", "Economía", "Tercer Tiempo"]
+  },
+  {
+    id: 6,
+    category: "Lore",
     year: "2016",
-    quote: "La única que seguro sé, porque compré las camisetas.",
-    shortDescription: "La llegada de las primeras camisetas oficiales.",
-    story: "A finales de 2015 Gastón Morales ve una oferta en Umbro. Se compraron de un modelo de Umbro ya existente. Había varias alternativas, pero ganó la propuesta amarillo y negra. El nombre Abejas surge porque unos chicos de la cancha de al lado gritaron “Mirá están jugando Abejas” y así surgió el nombre.",
-    highlightMoments: [
-      "Primera camiseta Umbro",
-      "Nacimiento del nombre Abejas",
-      "Consolidación del plantel"
-    ],
-    tags: ["Camisetas", "Identidad", "2016"],
-    coverImage: "/images/datos/tonga.jpg"
+    question: "¿Cómo surgió el nombre Abejas?",
+    shortAnswer: "Por unos chicos mirando desde otra cancha.",
+    fullAnswer: "Durante un amistoso en La Estanzuela, unos chicos empezaron a gritar: 'Abejas, pasen la pelota'. Cuando les preguntaron por qué, respondieron: 'Por las camisetas'.",
+    quote: "Mirá, están jugando Abejas.",
+    source: "Daniel Alejandro",
+    tags: ["Nombre", "Lore", "Canónico"]
+  },
+  {
+    id: 7,
+    category: "Camisetas",
+    year: "2016",
+    question: "¿Por qué las camisetas son amarillas y negras?",
+    shortAnswer: "Porque estaban de oferta.",
+    fullAnswer: "Había varios modelos disponibles, incluyendo una camiseta verde estilo Vélez y otra tipo Vasco Da Gama. Pero terminó imponiéndose la amarilla y negra impulsada por la campaña de Nacho.",
+    quote: "La campaña más importante de los últimos años.",
+    source: "Daniel Alejandro",
+    tags: ["Umbro", "Camisetas", "Lore"]
+  },
+  {
+    id: 8,
+    category: "Conspiraciones",
+    year: "2015",
+    question: "¿Quién fue El Maxicano?",
+    shortAnswer: "El responsable indirecto de un nuevo grupo.",
+    fullAnswer: "A finales de 2015 hubo diferencias internas con un integrante radicado en Norteamérica, conocido como 'El Maxicano', lo que terminó derivando en un nuevo grupo de WhatsApp.",
+    quote: "Para no mandarlo al frente.",
+    source: "Adrián",
+    tags: ["Drama", "WhatsApp", "Lore"]
+  },
+  {
+    id: 9,
+    category: "Tercer Tiempo",
+    year: "2016",
+    question: "¿Qué pasó el día del estreno de la camiseta?",
+    shortAnswer: "Terminó 7 a 7 y hubo caos.",
+    fullAnswer: "El estreno oficial de la camiseta ocurrió contra el equipo de un expolicía que bailaba salsa y relataba historias sexuales. El partido terminó 7 a 7 y fue suspendido mientras intentaban ubicar telefónicamente al Tonga.",
+    quote: "El intento infructuoso de la panadera por ubicar al Tonga.",
+    source: "Daniel Alejandro",
+    tags: ["Caos", "Lore", "Tercer Tiempo"]
   }
 ]
 
@@ -72,58 +114,46 @@ export default function Datos() {
         <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
           <div className="max-w-3xl">
             <span className="inline-block px-5 py-1.5 text-xs tracking-[4px] font-medium text-honey-300 border border-honey-300/30 rounded-full mb-6">
-              10 AÑOS ABEJAS FC
+              ARCHIVO HISTÓRICO
             </span>
             <h1 className="font-display text-[clamp(3.2rem,8vw,7.5rem)] leading-[0.88] tracking-[-3px] text-white mb-5">
               DATOS
             </h1>
             <p className="font-editorial text-xl md:text-2xl text-white/70 max-w-xl leading-tight">
-              Los números, las fechas y los detalles que construyeron la historia.
+              Curiosidades, fechas y verdades del enjambre.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Grid */}
+      {/* Grid de Datos */}
       <section className="py-16 md:py-24">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-6">
             {datos.map((dato, i) => (
               <motion.div
                 key={dato.id}
-                whileHover={{ scale: 1.015 }}
+                whileHover={{ scale: 1.01 }}
                 onClick={() => setSelected(dato)}
-                className="group relative overflow-hidden rounded-3xl border border-white/10 bg-zinc-950 cursor-pointer"
+                className="group border border-white/10 bg-zinc-950 hover:border-honey-300/30 transition-all duration-300 rounded-2xl p-8 cursor-pointer"
               >
-                <div className="relative h-80 overflow-hidden">
-                  <img 
-                    src={dato.coverImage} 
-                    alt={dato.name}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/70 to-black/90" />
-                  
-                  <div className="absolute top-5 left-5 flex items-center gap-2">
-                    <span className="px-3 py-1 text-xs tracking-[2px] bg-white/10 text-white/90 rounded-full backdrop-blur">
-                      {dato.chapter}
-                    </span>
-                  </div>
-
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <h3 className="font-display text-4xl tracking-[-1.5px] text-white leading-none mb-1">
-                      {dato.name}
-                    </h3>
-                    <p className="text-white/70 text-sm tracking-wide">{dato.nickname}</p>
-                  </div>
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="px-4 py-1 text-xs tracking-widest bg-honey-300/10 text-honey-300 rounded-full border border-honey-300/20">
+                    {dato.category}
+                  </span>
+                  <span className="text-xs text-white/50 tracking-widest">{dato.year}</span>
                 </div>
 
-                <div className="p-6">
-                  <p className="font-editorial text-lg text-white/90 leading-tight mb-4">
-                    “{dato.quote}”
-                  </p>
-                  <p className="text-sm text-white/60 line-clamp-3">
-                    {dato.shortDescription}
-                  </p>
+                <h3 className="font-display text-3xl tracking-tight text-white mb-3 leading-tight">
+                  {dato.question}
+                </h3>
+
+                <p className="text-white/80 text-base mb-6">
+                  {dato.shortAnswer}
+                </p>
+
+                <div className="text-sm text-honey-300 tracking-widest">
+                  {dato.source} · Ver más →
                 </div>
               </motion.div>
             ))}
@@ -135,7 +165,7 @@ export default function Datos() {
       <AnimatePresence>
         {selected && (
           <div className="fixed inset-0 z-[300] overflow-y-auto bg-black/95 backdrop-blur-xl">
-            <div className="max-w-5xl mx-auto px-6 pt-16 pb-24">
+            <div className="max-w-3xl mx-auto px-6 pt-16 pb-24">
               <button
                 onClick={() => setSelected(null)}
                 className="fixed top-8 right-8 z-50 text-white/60 hover:text-white transition-colors"
@@ -143,23 +173,28 @@ export default function Datos() {
                 <X size={32} />
               </button>
 
-              <div className="max-w-3xl mx-auto">
-                <h1 className="font-display text-[52px] leading-none tracking-[-2px] text-white mb-4">
-                  {selected.name}
-                </h1>
-                <p className="text-2xl text-white/80 mb-10">{selected.nickname}</p>
-
-                <div className="prose prose-invert prose-lg max-w-none font-editorial text-white/90 leading-relaxed">
-                  {selected.story}
+              <div className="max-w-2xl mx-auto">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="px-4 py-1 text-xs tracking-widest bg-honey-300/10 text-honey-300 rounded-full border border-honey-300/20">
+                    {selected.category}
+                  </span>
+                  <span className="text-sm text-white/50">{selected.year}</span>
                 </div>
 
-                <div className="mt-12">
-                  <h4 className="text-xs tracking-[4px] text-honey-300 mb-4">MOMENTOS DESTACADOS</h4>
-                  <ul className="space-y-2 text-white/80">
-                    {selected.highlightMoments.map((m, i) => (
-                      <li key={i}>→ {m}</li>
-                    ))}
-                  </ul>
+                <h1 className="font-display text-5xl tracking-[-1.5px] text-white leading-none mb-6">
+                  {selected.question}
+                </h1>
+
+                <p className="font-editorial text-2xl text-white/90 mb-10 tracking-tight">
+                  “{selected.quote}”
+                </p>
+
+                <div className="prose prose-invert prose-lg max-w-none font-editorial text-white/90 leading-relaxed">
+                  {selected.fullAnswer}
+                </div>
+
+                <div className="mt-12 text-sm text-white/60">
+                  Dicho por: <span className="text-honey-300">{selected.source}</span>
                 </div>
               </div>
             </div>

@@ -19,6 +19,9 @@ export default function Home() {
        {/* ── HERO QUOTES CAROUSEL ── */}
        <QuoteCarousel quotes={heroQuotes} />
 
+
+     {/* ── STATS ── */}
+       <StatsStrip stats={stats} />
         {/* ── FEATURED CHRONICLES ── */}
          <section className="py-20 md:py-28 lg:py-36">
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
@@ -30,25 +33,26 @@ export default function Home() {
                    EL ARCHIVO PERIODÍSTICO
                  </h2>
                </div>
-               <a
-                 href={ROUTES.CHRONICLES}
-                 className="text-honey-300 text-sm font-medium tracking-wide hover:text-honey-200 transition-colors flex items-center gap-2"
-               >
-                 Ver todas <ArrowRight size={14} />
-               </a>
+                <a
+                  href="/cronicas"
+                  className="text-honey-300 text-sm font-medium tracking-wide hover:text-honey-200 transition-colors flex items-center gap-2"
+                >
+                  Ver todas <ArrowRight size={14} />
+                </a>
              </div>
            </Reveal>
 
            <div className="grid md:grid-cols-2 gap-6 lg:grid-cols-3">
-             {chronicles.map((c, i) => (
-               <motion.article
-                 key={c.slug}
-                 initial={{ opacity: 0, y: 30 }}
-                 whileInView={{ opacity: 1, y: 0 }}
-                 viewport={{ once: true }}
-                 transition={{ delay: i * 0.1 }}
-                 className="group relative rounded-2xl border border-pitch-600/40 bg-pitch-700/50 p-8 md:p-9 hover:border-honey-300/25 transition-all duration-500 overflow-hidden cursor-pointer"
-               >
+              {chronicles.map((c, i) => (
+                <motion.a
+                  key={c.slug}
+                  href={`/cronicas#${c.slug}`}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="group block relative rounded-2xl border border-pitch-600/40 bg-pitch-700/50 p-8 md:p-9 hover:border-honey-300/25 transition-all duration-500 overflow-hidden"
+                >
                  <div className="absolute inset-0 bg-gradient-to-br from-honey-300/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
                  <div className="relative z-10">
@@ -73,69 +77,16 @@ export default function Home() {
                      <span className="w-1 h-1 rounded-full bg-pitch-500" />
                      <span>Lee {c.readTime}</span>
                    </div>
-                 </div>
-               </motion.article>
-             ))}
+                  </div>
+                </motion.a>
+              ))}
            </div>
          </div>
        </section>
 
-       {/* ── STATS ── */}
-       <StatsStrip stats={stats} />
+  
 
-        {/* ── FEATURED PLAYERS ── */}
-         <section className="py-20 md:py-28 lg:py-36">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
-           <Reveal>
-             <div className="flex items-end justify-between mb-14 flex-wrap gap-4">
-               <div>
-                 <SectionLabel>Jugadores</SectionLabel>
-                 <h2 className="font-[Bebas_Neue] text-4xl md:text-6xl tracking-tight mt-4 text-pitch-100">
-                   PERSONAJES DEL PANAL
-                 </h2>
-               </div>
-               <a
-                 href={ROUTES.PLAYERS}
-                 className="text-honey-300 text-sm font-medium tracking-wide hover:text-honey-200 transition-colors flex items-center gap-2"
-               >
-                 Ver todos <ArrowRight size={14} />
-               </a>
-             </div>
-           </Reveal>
-
-           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-             {featuredPlayers.map((p, i) => (
-               <motion.article
-                 key={p.id}
-                 initial={{ opacity: 0, y: 30 }}
-                 whileInView={{ opacity: 1, y: 0 }}
-                 viewport={{ once: true }}
-                 transition={{ delay: i * 0.1 }}
-                 className="group relative rounded-2xl border border-pitch-600/40 bg-gradient-to-br from-pitch-700/50 to-pitch-800/80 p-6 md:p-8 overflow-hidden hover:border-honey-300/25 transition-all duration-500 cursor-default"
-               >
-                 {/* Top stripe */}
-                 <div className="absolute top-0 left-0 right-0 h-[3px]"
-                   style={{ background: `linear-gradient(90deg, ${p.colores?.[0] || '#F59E0B'}, ${p.colores?.[1] || '#1C1917'})` }}
-                 />
-
-                 <div className="flex items-end justify-between mb-4">
-                   <div
-                     className="w-12 h-12 rounded-full flex items-center justify-center font-display text-2xl text-void"
-                     style={{ background: `linear-gradient(135deg, ${p.colores?.[0] || '#F59E0B'}, ${p.colores?.[1] || '#1C1917'})` }}
-                   >
-                     {p.alias.charAt(0)}
-                   </div>
-                   <span className="text-honey-300/50 text-[10px] font-semibold tracking-wider">{p.rol}</span>
-                 </div>
-
-                 <h3 className="font-[Bebas_Neue] text-2xl tracking-wider text-pitch-100 mb-0.5">{p.alias}</h3>
-                 <p className="text-pitch-300 text-xs mb-3">{p.nombre}</p>
-                 <p className="text-pitch-300 text-sm leading-relaxed line-clamp-3">{p.lore}</p>
-               </motion.article>
-             ))}
-           </div>
-         </div>
-       </section>
+      
 
 {/* ── SPECS / QUICK LINKS ── */}
         <section className="py-16 md:py-24 lg:py-32 border-t border-pitch-600/30">
@@ -147,16 +98,19 @@ export default function Home() {
              </h2>
            </Reveal>
 
-           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-             {[
-{ icon: <History size={20} />, label: 'El Vuelo', desc: 'De 2013 a hoy', path: ROUTES.TIEMPO, color: 'honey' },
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+              {[
+                { icon: <History size={20} />, label: 'El Vuelo', desc: 'De 2013 a hoy', path: ROUTES.TIEMPO, color: 'honey' },
                 { icon: <Award size={20} />, label: 'Museo', desc: 'Camisetas, frases, trofeos', path: ROUTES.MUSEO, color: 'amber' },
-                { icon: <Award size={20} />, label: 'Camisetas', desc: 'El manto sagrado', path: ROUTES.CAMISETAS, color: 'honey' },
                 { icon: <Newspaper size={20} />, label: 'Crónicas', desc: 'El documental escrito', path: ROUTES.CRONICAS, color: 'stone' },
                 { icon: <Users size={20} />, label: 'Jugadores', desc: '16 leyendas vivas', path: ROUTES.JUGADORES, color: 'honey' },
                 { icon: <Quote size={20} />, label: 'Frases', desc: 'La fraseología abeja', path: ROUTES.FRASES, color: 'amber' },
                 { icon: <Newspaper size={20} />, label: 'Diarios', desc: 'Las noticias que no van en Deportes', path: ROUTES.DIARIOS, color: 'stone' },
-             ].map((item, i) => (
+                { icon: <Users size={20} />, label: 'Entrevistas', desc: 'Voces del enjambre', path: '/entrevistas', color: 'honey' },
+                { icon: <Award size={20} />, label: 'Camisetas', desc: 'El manto sagrado', path: '/camisetas', color: 'amber' },
+                { icon: <Award size={20} />, label: 'Escudos', desc: 'Evolución del emblema', path: '/escudos', color: 'stone' },
+                { icon: <History size={20} />, label: 'Datos', desc: 'Archivo histórico', path: '/datos', color: 'honey' },
+              ].map((item, i) => (
                <motion.a
                  key={item.label}
                  href={item.path}
