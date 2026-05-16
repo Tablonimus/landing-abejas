@@ -101,7 +101,7 @@ export default function MainLayout({ children }) {
 
       {/* ─── MAIN ─── */}
       <main className="flex-1 pt-[80px] md:pt-[90px]">
-        <div className="container">
+        <div className="">
           {children}
         </div>
       </main>

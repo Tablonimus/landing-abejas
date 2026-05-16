@@ -1,0 +1,79 @@
+/* ═══════════════════════════════════════════════════════════
+   HERO BANNER — Estilos aislados
+   Este archivo solo afecta al HeroBanner
+   ═══════════════════════════════════════════════════════════ */
+
+.hero-banner {
+  width: 100vw;
+  min-height: 100dvh;
+  position: relative;
+  overflow: hidden;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Título gigante sin interferencias */
+.hero-banner .hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(6.2rem, 15vw, 15.5rem);
+  line-height: 0.74;
+  letter-spacing: -9.5px;
+  color: white;
+}
+
+.hero-banner .hero-title-fc {
+  font-family: var(--font-display);
+  font-size: clamp(7rem, 17vw, 17.5rem);
+  line-height: 0.72;
+  letter-spacing: -10px;
+  color: #FACC15;
+}
+
+/* Frase */
+.hero-banner .hero-phrase {
+  max-width: 620px;
+  text-align: center;
+  font-size: clamp(21px, 2.2vw, 26px);
+  color: white;
+  line-height: 1.15;
+  letter-spacing: -0.25px;
+}
+
+/* Comillas amarillas grandes */
+.hero-banner .hero-quote {
+  color: #FACC15;
+  font-size: clamp(52px, 5vw, 62px);
+  line-height: 1;
+}
+
+/* Botones del hero */
+.hero-banner .hero-cta-primary {
+  padding: 17px 40px;
+  background: #FACC15;
+  color: black;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.hero-banner .hero-cta-primary:hover {
+  background: #facc15cc;
+}
+
+.hero-banner .hero-cta-secondary {
+  padding: 17px 40px;
+  border: 2px solid white;
+  color: white;
+  font-weight: 500;
+  letter-spacing: 1px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.hero-banner .hero-cta-secondary:hover {
+  background: white;
+  color: black;
+}
