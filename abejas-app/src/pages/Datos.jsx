@@ -110,8 +110,8 @@ export default function Datos() {
   return (
     <div className="bg-void min-h-screen">
       {/* Header */}
-      <section className="relative pt-20 pb-16 md:pt-28 md:pb-20 overflow-hidden border-b border-white/10">
-        <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
+      <section className="relative pt-24 pb-20 md:pt-32 md:pb-24 overflow-hidden border-b border-white/10">
+        <div className="relative z-10 max-w-[1400px] mx-auto px-6 sm:px-10 md:px-12 lg:px-16">
           <div className="max-w-3xl">
             <span className="inline-block px-5 py-1.5 text-xs tracking-[4px] font-medium text-honey-300 border border-honey-300/30 rounded-full mb-6">
               ARCHIVO HISTÓRICO
@@ -127,15 +127,19 @@ export default function Datos() {
       </section>
 
       {/* Grid de Datos */}
-      <section className="py-16 md:py-24">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
-          <div className="grid md:grid-cols-2 gap-6">
+      <section className="py-20 md:py-28">
+        <div className="max-w-[1400px] mx-auto px-6 sm:px-10 md:px-12 lg:px-16">
+          <div className="grid md:grid-cols-2 gap-8">
             {datos.map((dato, i) => (
               <motion.div
                 key={dato.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.05 }}
                 whileHover={{ scale: 1.01 }}
                 onClick={() => setSelected(dato)}
-                className="group border border-white/10 bg-zinc-950 hover:border-honey-300/30 transition-all duration-300 rounded-2xl p-8 cursor-pointer"
+                className="group border border-white/10 bg-zinc-950 hover:border-honey-300/30 transition-all duration-300 rounded-2xl p-10 cursor-pointer"
               >
                 <div className="flex items-center gap-3 mb-4">
                   <span className="px-4 py-1 text-xs tracking-widest bg-honey-300/10 text-honey-300 rounded-full border border-honey-300/20">
@@ -165,7 +169,7 @@ export default function Datos() {
       <AnimatePresence>
         {selected && (
           <div className="fixed inset-0 z-[300] overflow-y-auto bg-black/95 backdrop-blur-xl">
-            <div className="max-w-3xl mx-auto px-6 pt-16 pb-24">
+            <div className="max-w-3xl mx-auto px-6 sm:px-8 pt-20 pb-28">
               <button
                 onClick={() => setSelected(null)}
                 className="fixed top-8 right-8 z-50 text-white/60 hover:text-white transition-colors"

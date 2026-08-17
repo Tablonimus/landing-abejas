@@ -7,10 +7,10 @@ export default function Papers() {
    return (
      <div className="bg-void min-h-screen">
       {/* Header */}
-      <section className="relative py-16 md:py-24 lg:py-36 overflow-hidden">
+      <section className="relative py-20 md:py-28 lg:py-40 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_-20%,rgba(250,204,21,0.1),transparent)]" />
 
-        <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
+        <div className="relative z-10 max-w-[1400px] mx-auto px-6 sm:px-10 md:px-12 lg:px-16">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -30,8 +30,8 @@ export default function Papers() {
       </section>
 
 {/* Papers clip strip */}
-        <section className="py-12 md:py-20 max-w-[1100px] mx-auto px-4 sm:px-6">
-          <div className="flex flex-col sm:flex-row flex-wrap gap-6 justify-center">
+        <section className="py-20 md:py-28 max-w-[1100px] mx-auto px-6 sm:px-10 md:px-12">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-8 justify-center">
             {policiales.map((paper, i) => (
               <PaperClip key={paper.id} paper={paper} index={i} />
             ))}

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import PhotoPlaceholder from '../ui/PhotoPlaceholder'
 
 export default function PlayerCard({ player, index = 0 }) {
   return (
@@ -12,12 +13,8 @@ export default function PlayerCard({ player, index = 0 }) {
     >
       {/* Foto protagonista */}
       <div className="relative h-80 overflow-hidden">
-        <img
-          src={player.foto || "/images/placeholder-player.jpg"}
-          alt={player.alias}
-          className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.12]"
-        />
-        
+        <PhotoPlaceholder icon="🐝" />
+
         {/* Overlay cinematográfico */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/70 to-black" />
         
@@ -36,7 +33,7 @@ export default function PlayerCard({ player, index = 0 }) {
         </div>
 
         {/* Nombre grande */}
-        <div className="absolute bottom-0 left-0 right-0 p-6">
+        <div className="absolute bottom-0 left-0 right-0 p-8">
           <h3 className="font-display text-5xl tracking-[-2px] text-white leading-none mb-1">
             {player.alias}
           </h3>
@@ -44,7 +41,7 @@ export default function PlayerCard({ player, index = 0 }) {
         </div>
       </div>
 
-      <div className="p-6">
+      <div className="p-9">
         {/* Rol / Apodo */}
         <div className="flex items-center gap-3 mb-4">
           <span className="px-4 py-1 text-xs font-bold tracking-[1.5px] bg-honey-300/10 text-honey-300 rounded-full border border-honey-300/20">
@@ -56,9 +53,9 @@ export default function PlayerCard({ player, index = 0 }) {
         </div>
 
         {/* Frase memorable */}
-        {player.frase && (
+        {player.frases?.[0] && (
           <p className="font-editorial italic text-lg text-white/90 leading-tight mb-5">
-            “{player.frase}”
+            “{player.frases[0]}”
           </p>
         )}
 
@@ -66,18 +63,6 @@ export default function PlayerCard({ player, index = 0 }) {
         <p className="text-pitch-300 text-sm leading-relaxed line-clamp-3 mb-5">
           {player.lore}
         </p>
-
-        {/* Tags */}
-        <div className="flex flex-wrap gap-2">
-          {player.tags?.map((tag, i) => (
-            <span 
-              key={i} 
-              className="px-3 py-0.5 text-[10px] tracking-widest bg-white/5 text-white/60 rounded-full border border-white/10"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
       </div>
     </motion.article>
   )

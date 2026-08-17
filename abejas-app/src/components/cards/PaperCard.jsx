@@ -8,7 +8,7 @@ export default function PaperClip({ paper, index = 0 }) {
       whileInView={{ opacity: 1, y: 0, rotate: 0 }}
       viewport={{ once: true, amount: 0.15 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group relative rounded-2xl bg-gradient-to-br from-vintage-white to-paper p-5 sm:p-6 md:p-8 text-void overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-honey-300/10 transition-all duration-500 rotate-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
+      className="group relative rounded-2xl bg-gradient-to-br from-vintage-white to-paper p-8 sm:p-9 md:p-10 text-void overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-honey-300/10 transition-all duration-500 rotate-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
       style={{
         transform: `rotate(${index % 2 === 0 ? -0.5 : 0.5}deg)`,
       }}

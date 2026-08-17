@@ -1,8 +1,12 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import JerseyCard from '../components/museum/JerseyCard'
 import { Reveal, SectionLabel } from '../components/ui/Reveal'
 import { camisetas } from '../data/mocks'
+import { ROUTES } from '../constants'
 import { Award, Quote, Trophy, Image as ImageIcon } from 'lucide-react'
+
+const MotionLink = motion(Link)
 
 const museumSections = [
   {
@@ -10,14 +14,14 @@ const museumSections = [
     label: 'Camisetas',
     icon: <Award size={16} />,
     desc: '10 años de evolución del manto sagrado',
-    path: '/camisetas',
+    path: ROUTES.CAMISETAS,
   },
   {
     id: 'frases',
     label: 'Frases célebres',
     icon: <Quote size={16} />,
     desc: 'La fraseología oficial del grupo',
-    path: '/quotes',
+    path: ROUTES.FRASES,
   },
   {
     id: 'trofeos',
@@ -30,14 +34,14 @@ const museumSections = [
     label: 'Noticias',
     icon: <ImageIcon size={16} />,
     desc: 'Policiales sin filtro',
-    path: '/papers',
+    path: ROUTES.DIARIOS,
   },
   {
     id: 'shields',
     label: 'Escudos Históricos',
     icon: <ImageIcon size={16} />,
     desc: 'La evolución de nuestro emblema',
-    path: '/escudos',
+    path: ROUTES.ESCUDOS,
   },
 ]
 
@@ -45,10 +49,10 @@ export default function Museum() {
    return (
      <div className="bg-void min-h-screen">
         {/* Header */}
-        <section className="relative pt-20 pb-16 md:pt-28 md:pb-24 lg:pt-32 lg:pb-28 overflow-hidden">
+        <section className="relative pt-24 pb-20 md:pt-32 md:pb-28 lg:pt-36 lg:pb-32 overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_-20%,rgba(250,204,21,0.12),transparent)]" />
 
-           <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
+           <div className="relative z-10 max-w-[1400px] mx-auto px-6 sm:px-10 md:px-12 lg:px-16">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
@@ -69,29 +73,29 @@ export default function Museum() {
        </section>
 
 {/* Sub-sections nav */}
-        <section className="py-10 max-w-[1200px] mx-auto px-4 sm:px-6">
-         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <section className="py-12 max-w-[1200px] mx-auto px-6 sm:px-10 md:px-12">
+         <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
            {museumSections.map((s, i) => (
-             <motion.a
+             <MotionLink
                key={s.id}
-               href={s.path || '#'}
+               to={s.path || '#'}
                initial={{ opacity: 0, y: 20 }}
                whileInView={{ opacity: 1, y: 0 }}
                viewport={{ once: true }}
                transition={{ delay: i * 0.08 }}
                whileHover={{ scale: 1.03 }}
-               className="flex flex-col items-center text-center p-6 rounded-2xl border border-pitch-600/40 bg-pitch-700/20 hover:bg-pitch-700/50 hover:border-honey-300/25 transition-all duration-400"
+               className="flex flex-col items-center text-center p-8 rounded-2xl border border-pitch-600/40 bg-pitch-700/20 hover:bg-pitch-700/50 hover:border-honey-300/25 transition-all duration-400"
              >
                <span className="text-2xl mb-3 text-honey-300">{s.icon}</span>
                <h3 className="font-[Bebas_Neue] text-lg tracking-wider text-pitch-100 mb-1">{s.label}</h3>
                <p className="text-pitch-400 text-xs">{s.desc}</p>
-             </motion.a>
+             </MotionLink>
            ))}
          </div>
        </section>
 
 {/* Jerseys */}
-         <section id="jerseys" className="py-20 md:py-24 max-w-[1200px] mx-auto px-4 sm:px-6">
+         <section id="jerseys" className="py-24 md:py-28 max-w-[1200px] mx-auto px-6 sm:px-10 md:px-12">
          <Reveal>
            <SectionLabel>Camisetas históricas</SectionLabel>
            <div className="flex items-baseline justify-between mb-10">
@@ -101,7 +105,7 @@ export default function Museum() {
            </div>
          </Reveal>
 
-         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
            {camisetas.map((kit, i) => (
              <JerseyCard key={kit.anio} kit={kit} index={i} />
            ))}
@@ -109,12 +113,12 @@ export default function Museum() {
        </section>
 
 {/* TheStar */}
-         <section className="py-20 md:py-24 max-w-[1200px] mx-auto px-4 sm:px-6">
+         <section className="py-24 md:py-28 max-w-[1200px] mx-auto px-6 sm:px-10 md:px-12">
          <motion.div
            initial={{ opacity: 0, scale: 0.95 }}
            whileInView={{ opacity: 1, scale: 1 }}
            viewport={{ once: true }}
-           className="relative rounded-3xl border border-honey-300/20 bg-gradient-to-br from-honey-300/10 via-pitch-700/30 to-void/80 p-10 md:p-14 overflow-hidden"
+           className="relative rounded-3xl border border-honey-300/20 bg-gradient-to-br from-honey-300/10 via-pitch-700/30 to-void/80 p-11 md:p-16 overflow-hidden"
          >
            <div className="absolute -top-10 -right-10 text-[12rem] opacity-[0.04]">⭐</div>
            <div className="relative z-10 max-w-xl">

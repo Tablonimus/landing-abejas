@@ -11,7 +11,7 @@ export default function ChronicleCard({ chronicle, index = 0 }) {
     >
       <div className="card-glow" />
 
-      <div className="relative z-10 p-8 md:p-11 lg:p-13">
+      <div className="relative z-10 p-10 md:p-14 lg:p-16">
         {/* Meta */}
         <div className="flex flex-wrap items-center gap-3 mb-5">
           <span className="badge badge-honey">

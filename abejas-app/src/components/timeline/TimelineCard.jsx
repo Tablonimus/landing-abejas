@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 
-export default function TimelineCard({ event, index }) {
+export default function TimelineCard({ event, index, total }) {
   const isEven = index % 2 === 0
 
   return (
@@ -27,7 +27,7 @@ export default function TimelineCard({ event, index }) {
         >
           {event.icon}
         </motion.div>
-        {index < 10 && (
+        {index < total - 1 && (
           <div className="w-px flex-1 bg-gradient-to-b from-honey-300/40 to-transparent mt-3" />
         )}
       </div>
@@ -36,7 +36,7 @@ export default function TimelineCard({ event, index }) {
       <div className={`${isEven ? 'md:order-1 md:text-right' : 'md:order-3 md:text-left'}`}>
         <motion.div
           whileHover={{ x: isEven ? -6 : 6 }}
-          className={`group rounded-2xl p-5 md:p-6 lg:p-8 border border-pitch-600/40 bg-gradient-to-br ${
+          className={`group rounded-2xl p-8 md:p-10 lg:p-12 border border-pitch-600/40 bg-gradient-to-br ${
             isEven ? 'from-pitch-700/50 to-void/80' : 'from-pitch-700/50 to-void/80'
           } hover:border-honey-300/25 transition-all duration-500 cursor-default`}
         >

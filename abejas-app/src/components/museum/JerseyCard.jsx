@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Expand } from 'lucide-react'
 import { useState } from 'react'
+import PhotoPlaceholder from '../ui/PhotoPlaceholder'
 
 export default function JerseyCard({ kit, index = 0 }) {
   const [open, setOpen] = useState(false)
@@ -24,19 +25,7 @@ export default function JerseyCard({ kit, index = 0 }) {
       >
         {/* Jersey visual placeholder */}
         <div className="relative h-64 overflow-hidden">
-          <div className={`absolute inset-0 bg-gradient-to-br ${colors[0]}/${colors[1]} opacity-80`} />
-          {/* Stripes */}
-          <div className="absolute inset-0 flex flex-col justify-evenly opacity-15">
-            {[...Array(7)].map((_, i) => (
-              <div key={i} className="h-12 bg-void rounded-sm mx-4" />
-            ))}
-          </div>
-          {/* Shield placeholder */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-24 h-28 rounded-xl bg-void/60 border border-honey-300/30 backdrop-blur-sm flex items-center justify-center">
-              <span className="font-display text-4xl text-honey-300">🐝</span>
-            </div>
-          </div>
+          <PhotoPlaceholder label={kit.anio} colors={colors} />
 
           {/* Hover overlay */}
           <motion.div
@@ -52,7 +41,7 @@ export default function JerseyCard({ kit, index = 0 }) {
         </div>
 
         {/* Info */}
-        <div className="p-6">
+        <div className="p-8">
           <span className="font-display text-honey-300 text-sm tracking-[0.2em]">{kit.anio}</span>
           <h3 className="font-[Bebas_Neue] text-xl md:text-2xl tracking-wider text-pitch-100 mt-1 mb-1">{kit.nombre}</h3>
           <p className="text-pitch-400 text-xs">{kit.modelo}</p>
@@ -69,7 +58,7 @@ export default function JerseyCard({ kit, index = 0 }) {
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             onClick={(e) => e.stopPropagation()}
-            className="bg-pitch-700 border border-pitch-600/50 rounded-2xl max-w-lg w-full p-8 relative"
+            className="bg-pitch-700 border border-pitch-600/50 rounded-2xl max-w-lg w-full p-9 relative"
           >
             <button
               onClick={() => setOpen(false)}

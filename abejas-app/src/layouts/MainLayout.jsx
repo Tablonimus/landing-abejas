@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { NAV_ITEMS } from '../constants'
-import { useLocation, NavLink } from 'react-router-dom'
+import { useLocation, NavLink, Link } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
@@ -25,22 +25,22 @@ export default function MainLayout({ children }) {
       >
         <div className="container flex items-center justify-between h-[68px]">
           {/* Brand */}
-          <a href="/" className="navbar-brand group flex items-center gap-3">
+          <Link to="/" className="navbar-brand group flex items-center gap-3">
             <div className="w-9 h-9 rounded-full overflow-hidden border border-white/10 flex-shrink-0">
-              <img 
-                src="/logo_insitucional.jpg" 
-                alt="Abejas FC" 
-                className="w-full h-full object-cover" 
+              <img
+                src="/logo_insitucional.jpg"
+                alt="Abejas FC"
+                className="w-full h-full object-cover"
                 loading="lazy"
               />
             </div>
             <span className="navbar-title group-hover:text-honey-300">
               ABEJAS FC
             </span>
-          </a>
+          </Link>
 
           {/* Desktop nav */}
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden xl:flex items-center gap-1">
             {NAV_ITEMS.map(({ label, path }) => {
               const active = pathname === path || (path !== '/' && pathname.startsWith(path))
               return (
@@ -59,7 +59,7 @@ export default function MainLayout({ children }) {
           {/* Mobile toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden text-pitch-200 hover:text-honey-300 transition-colors p-2"
+            className="xl:hidden text-pitch-200 hover:text-honey-300 transition-colors p-2"
             aria-label="Menú"
           >
             {mobileOpen ? <X size={22} /> : <Menu size={22} />}
@@ -74,7 +74,7 @@ export default function MainLayout({ children }) {
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.35, ease: [0.25, 1, 0.5, 1] }}
-              className="lg:hidden overflow-hidden bg-void/97 backdrop-blur-xl border-t border-pitch-600/40"
+              className="xl:hidden overflow-hidden bg-void/97 backdrop-blur-xl border-t border-pitch-600/40"
             >
               <div className="px-5 py-6 space-y-1">
                 {NAV_ITEMS.map(({ label, path }) => (
@@ -109,7 +109,7 @@ export default function MainLayout({ children }) {
 
       {/* ─── FOOTER ─── */}
       <footer className="footer relative">
-        <div className="container py-16">
+        <div className="container py-20">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             {/* Brand */}
             <div className="flex items-center gap-4">
@@ -137,7 +137,7 @@ export default function MainLayout({ children }) {
           {/* Bottom bar */}
           <div className="mt-10 pt-6 border-t border-pitch-600/20 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-pitch-400 text-xs tracking-wide">
-              © 2024 Abejas FC. Todos los derechos reservados.
+              © {new Date().getFullYear()} Abejas FC. Todos los derechos reservados.
             </p>
             <div className="flex items-center gap-6">
               {NAV_ITEMS.filter(n => n.path !== '/').slice(0, 4).map(n => (

@@ -306,7 +306,7 @@
 }
 
 .btn-sm {
-  padding: 8px 20px;
+  padding: 10px 24px;
   font-size: 10px;
 }
 
@@ -542,7 +542,7 @@
   border-radius: 20px;
   border: 1px solid rgba(250, 204, 21, 0.12);
   background: linear-gradient(145deg, rgba(250, 204, 21, 0.04), rgba(255,255,255,0.01));
-  padding: 28px;
+  padding: 44px;
   transition: all 0.4s var(--ease-out-quart);
   position: relative;
   overflow: hidden;

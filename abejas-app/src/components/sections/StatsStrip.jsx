@@ -3,8 +3,8 @@ import { SectionLabel, Reveal } from '../ui/Reveal'
 
 export default function StatsStrip({ stats }) {
   return (
-    <section className="py-20 border-y border-pitch-600/40 bg-pitch-700/30">
-      <div className="max-w-[1400px] mx-auto px-4 md:px-8">
+    <section className="py-24 border-y border-pitch-600/40 bg-pitch-700/30">
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 md:px-12 lg:px-16">
         <Reveal>
           <SectionLabel>10 años en números</SectionLabel>
         </Reveal>
@@ -17,7 +17,7 @@ export default function StatsStrip({ stats }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08 }}
-              className="bg-void/80 p-6 md:p-8 group hover:bg-pitch-700/60 transition-colors duration-300"
+              className="bg-void/80 p-7 md:p-9 group hover:bg-pitch-700/60 transition-colors duration-300"
             >
               <p className="font-display text-3xl md:text-4xl lg:text-5xl text-honey-300 mb-1">
                 {stat.value}

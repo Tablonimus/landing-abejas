@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import { ROUTES } from '../../constants'
 import './HeroBanner.css'
 
@@ -100,12 +101,12 @@ export default function HeroBanner() {
       <div className='h-10'></div>
         {/* BOTONES con lógica UX/UI clara */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href={ROUTES.TIEMPO} className="hero-cta-primary">
+          <Link to={ROUTES.TIEMPO} className="hero-cta-primary">
             VER LA HISTORIA
-          </a>
-          <a href="/datos" className="hero-cta-secondary">
+          </Link>
+          <Link to={ROUTES.DATOS} className="hero-cta-secondary">
             DATOS
-          </a>
+          </Link>
         </div>
       </div>
 

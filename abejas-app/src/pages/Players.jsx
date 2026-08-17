@@ -27,10 +27,10 @@ export default function Players() {
 
   return (
     <div className="bg-void min-h-screen">
-      <section className="relative pt-20 pb-16 md:pt-28 md:pb-24 lg:pt-32 lg:pb-28 overflow-hidden">
+      <section className="relative pt-24 pb-20 md:pt-32 md:pb-28 lg:pt-36 lg:pb-32 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_0%,rgba(250,204,21,0.08),transparent)]" />
 
-        <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
+        <div className="relative z-10 max-w-[1400px] mx-auto px-6 sm:px-10 md:px-12 lg:px-16">
           <Reveal>
             <div className="mb-10">
               <SectionLabel>Plantel Oficial</SectionLabel>
@@ -85,14 +85,14 @@ export default function Players() {
           </Reveal>
 
           {/* Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
             {filtered.map((p, i) => (
               <PlayerCard key={p.id} player={p} index={i} />
             ))}
           </div>
 
           {filtered.length === 0 && (
-            <p className="text-pitch-400 text-center py-16 font-editorial italic">
+            <p className="text-pitch-400 text-center py-20 font-editorial italic">
               Ningún jugador coincide con ese filtro.
             </p>
           )}

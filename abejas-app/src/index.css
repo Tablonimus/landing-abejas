@@ -51,10 +51,10 @@
   --shadow-hero: 0 -10px 60px rgba(0, 0, 0, 0.8), 0 4px 40px rgba(0, 0, 0, 0.6);
 
   /* ── SPACING SCALE ── */
-  --space-18: 4.5rem;
-  --space-22: 5.5rem;
-  --space-28: 7rem;
-  --space-36: 9rem;
+  --space-18: 5rem;
+  --space-22: 6.5rem;
+  --space-28: 8rem;
+  --space-36: 10rem;
 
   /* ── ANIMACIONES ── */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -173,16 +173,6 @@ ul, ol {
 }
 @media (min-width: 1024px) {
   .card { padding: 2rem; }
-}
-
-/* Button breathing */
-.btn {
-  padding-left: 1.75rem;
-  padding-right: 1.75rem;
-  padding-top: 0.875rem;
-  padding-bottom: 0.875rem;
-  font-size: 0.875rem;
-  letter-spacing: 0.5px;
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -334,24 +324,9 @@ p {
 
 /* ═══════════════════════════════════════════════════════════
    BOTONES
+   Nota: la clase base .btn vive en App.css (import posterior en
+   main.jsx, es la que realmente aplica) — acá solo variantes.
    ═══════════════════════════════════════════════════════════ */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 12px 28px;
-  border-radius: 99px;
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 13px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  transition: all 0.35s var(--ease-out-quart);
-  position: relative;
-  overflow: hidden;
-}
-
 .btn-primary {
   background: linear-gradient(135deg, var(--color-honey-200), var(--color-honey-300));
   color: var(--color-void);
@@ -373,11 +348,6 @@ p {
   background: rgba(250, 204, 21, 0.05);
 }
 
-.btn-sm {
-  padding: 8px 20px;
-  font-size: 11px;
-}
-
 .btn-icon {
   width: 44px;
   height: 44px;
@@ -396,34 +366,7 @@ p {
   margin-bottom: 3rem;
 }
 
-.section-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--color-honey-300);
-}
-
-.section-label::before {
-  content: '';
-  display: block;
-  width: 24px;
-  height: 1px;
-  background: var(--color-honey-300);
-  opacity: 0.7;
-}
-.section-label::after {
-  content: '';
-  display: block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--color-honey-300);
-  opacity: 0.5;
-}
+/* Nota: .section-label vive en App.css (import posterior en main.jsx) */
 
 /* ═══════════════════════════════════════════════════════════
    NAVBAR
@@ -469,109 +412,12 @@ p {
   color: var(--color-honey-300);
 }
 
-/* ── Desktop links ── */
-.nav-link {
-  position: relative;
-  padding: 8px 14px;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-pitch-300);
-  transition: color 0.3s;
-  border-radius: 8px;
-}
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: 2px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 2px;
-  background: var(--color-honey-300);
-  border-radius: 99px;
-  transition: width 0.3s var(--ease-out-quart);
-}
-.nav-link:hover {
-  color: var(--color-honey-300);
-}
-.nav-link:hover::after,
-.nav-link--active::after {
-  width: calc(100% - 28px);
-}
-.nav-link--active {
-  color: var(--color-honey-300);
-}
+/* Nota: .nav-link (y variantes) vive en App.css (import posterior en main.jsx) */
 
-/* ═══════════════════════════════════════════════════════════
-   FOOTER
-   ═══════════════════════════════════════════════════════════ */
-.footer {
-  border-top: 1px solid rgba(250, 204, 21, 0.08);
-  background: linear-gradient(180deg, var(--color-void), var(--color-void-800));
-  position: relative;
-  overflow: hidden;
-}
-.footer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 200px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--color-honey-300), transparent);
-}
+/* Nota: .footer vive en App.css (import posterior en main.jsx) */
 
-/* ═══════════════════════════════════════════════════════════
-   HERO OVERLAYS
-   ═══════════════════════════════════════════════════════════ */
-.hero {
-  position: relative;
-  overflow: hidden;
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(10, 10, 10, 0.2) 0%,
-    rgba(10, 10, 10, 0.6) 60%,
-    var(--color-void) 100%
-  );
-  z-index: 1;
-}
-.hero::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    ellipse 70% 50% at 50% 0%,
-    rgba(250, 204, 21, 0.08),
-    transparent 70%
-  );
-  z-index: 1;
-}
-
-.hero__content {
-  position: relative;
-  z-index: 2;
-}
-
-.hero-stripes {
-  position: absolute;
-  inset: 0;
-  opacity: 0.025;
-  background: repeating-linear-gradient(
-    -45deg,
-    var(--color-honey-300),
-    var(--color-honey-300) 1px,
-    transparent 1px,
-    transparent 40px
-  );
-}
+/* Nota: .hero / .hero-stripes viven en App.css; HeroBanner usa su propio
+   HeroBanner.css con selectores anidados (.hero-banner .hero-title), sin conflicto */
 
 /* ═══════════════════════════════════════════════════════════
    QUOTES / FRASES DESTACADAS
@@ -645,7 +491,7 @@ p {
    SPACING HELPERS
    ═══════════════════════════════════════════════════════════ */
 .section   { padding-block: var(--space-22); }
-.section--sm { padding-block: 5rem; }
+.section--sm { padding-block: 6rem; }
 .section--lg { padding-block: var(--space-36); }
 
 /* ═══════════════════════════════════════════════════════════

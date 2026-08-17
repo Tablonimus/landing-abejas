@@ -509,6 +509,14 @@ export const camisetas = [
   },
 ]
 
+// ─── ESCUDOS HISTÓRICOS ──────────────────────────────────
+// Pendiente: hay escudos reales del grupo pero todavía no se
+// cargaron los datos (años / nombres / historia de cada uno).
+// Misma forma que `camisetas` — apenas lleguen, se agregan acá
+// como entradas { id, anio, nombre, historia } y la página
+// /escudos los muestra solas, sin tocar más código.
+export const escudos = []
+
 // ─── POLICIALES ───────────────────────────────────────────
 export const policiales = [
   {

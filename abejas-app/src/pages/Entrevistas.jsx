@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X } from 'lucide-react'
+import PhotoPlaceholder from '../components/ui/PhotoPlaceholder'
 
 const entrevistas = [
   {
@@ -179,8 +180,8 @@ export default function Entrevistas() {
   return (
     <div className="bg-void min-h-screen">
       {/* Header */}
-      <section className="relative pt-20 pb-16 md:pt-28 md:pb-20 overflow-hidden border-b border-white/10">
-        <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
+      <section className="relative pt-24 pb-20 md:pt-32 md:pb-24 overflow-hidden border-b border-white/10">
+        <div className="relative z-10 max-w-[1400px] mx-auto px-6 sm:px-10 md:px-12 lg:px-16">
           <div className="max-w-3xl">
             <span className="inline-block px-5 py-1.5 text-xs tracking-[4px] font-medium text-honey-300 border border-honey-300/30 rounded-full mb-6">
               10 AÑOS ABEJAS FC
@@ -196,23 +197,23 @@ export default function Entrevistas() {
       </section>
 
       {/* Grid de entrevistas */}
-      <section className="py-16 md:py-24">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section className="py-20 md:py-28">
+        <div className="max-w-[1400px] mx-auto px-6 sm:px-10 md:px-12 lg:px-16">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
             {entrevistas.map((ent, i) => (
               <motion.div
                 key={ent.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
                 whileHover={{ scale: 1.015 }}
                 onClick={() => setSelected(ent)}
                 className="group relative overflow-hidden rounded-3xl border border-white/10 bg-zinc-950 cursor-pointer"
               >
                 {/* Cover image */}
                 <div className="relative h-80 overflow-hidden">
-                  <img 
-                    src={ent.coverImage} 
-                    alt={ent.name}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
+                  <PhotoPlaceholder icon="🎤" />
                   <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/70 to-black/90" />
                   
                   <div className="absolute top-5 left-5 flex items-center gap-2">
@@ -224,7 +225,7 @@ export default function Entrevistas() {
                     </span>
                   </div>
 
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <div className="absolute bottom-0 left-0 right-0 p-8">
                     <div className="text-honey-300 text-xs tracking-[2px] mb-1">{ent.archive}</div>
                     <h3 className="font-display text-4xl tracking-[-1.5px] text-white leading-none mb-1">
                       {ent.name}
@@ -233,7 +234,7 @@ export default function Entrevistas() {
                   </div>
                 </div>
 
-                <div className="p-6">
+                <div className="p-9">
                   <div className="flex items-center gap-2 mb-4">
                     <span className="px-3 py-0.5 text-[10px] font-bold tracking-widest bg-honey-300/10 text-honey-300 rounded-full">
                       {ent.role}
@@ -259,7 +260,7 @@ export default function Entrevistas() {
       <AnimatePresence>
         {selected && (
           <div className="fixed inset-0 z-[300] overflow-y-auto bg-black/95 backdrop-blur-xl">
-            <div className="max-w-5xl mx-auto px-6 pt-16 pb-24">
+            <div className="max-w-5xl mx-auto px-6 sm:px-8 pt-20 pb-28">
               <button
                 onClick={() => setSelected(null)}
                 className="fixed top-8 right-8 z-50 text-white/60 hover:text-white transition-colors"
@@ -269,11 +270,7 @@ export default function Entrevistas() {
 
               {/* Hero */}
               <div className="relative h-[420px] rounded-3xl overflow-hidden mb-12">
-                <img 
-                  src={selected.coverImage} 
-                  alt={selected.name}
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
+                <PhotoPlaceholder icon="🎤" />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/70 to-black" />
                 
                 <div className="absolute bottom-0 left-0 right-0 p-10">
